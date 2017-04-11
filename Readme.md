@@ -1,7 +1,7 @@
 # Личный проект «Глейси»
 
-* Студент: [Иванова Виктория](https://up.htmlacademy.ru/htmlcss/17/user/293335).
-* Наставник: `Неизвестно`.
+* Студент: [Виктория Иванова](https://up.htmlacademy.ru/htmlcss/17/user/293335).
+* Наставник: [Максим Фарига]. (https://htmlacademy.ru/profile/maximfariga).
 
 ---
 
