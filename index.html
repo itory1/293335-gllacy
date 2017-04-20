@@ -5,187 +5,220 @@
         <title>HTML Academy: Глейси</title>
     </head>
     <body>
-      <!-- Тут должен идти центровщик, который обернет собой весь контент. Почему именно так? На главной странцие есть слайдер, расположенный под меню. Он реализуется на CSS. При смене слайдов меняется весь фон страницы. А чтобы этого добиться, надо обернуть всё содежимое в контейнер, у которого будет меняться фон -->
-        <header>
-        <!--Нужен ли тут центровщик?-->
-        <!-- Тут уже не нужен -->
-            <div class="header-logo">
-                <img src="http://placehold.it/150x100" alt="GllacyShop" width="" height="">
-            </div>
-            <ul class="page-nav">
-                <li><a href="#">Каталог</a></li>
-                <!-- Внутри каталога есть выпадающий список, его тоже надо добавить http://prntscr.com/eykxfd -->
-                <li><a href="#">Доставка и оплата</a></li>
-                <li><a href="#">О компании</a></li>
-            </ul>
-            <!-- Всё правое содержимое надо обернуть в общий блок http://prntscr.com/eykxka, чтобы туда спозиционировать -->
-            <!-- Всё что будет внутри блока, который спозиционирует поля вправо, будет примерно по одному принципу делаться -->
-            <!-- Смотрим что у нас есть http://prntscr.com/eykxvo, http://prntscr.com/eykxy8, http://prntscr.com/eyky1k - это на странице каталога, но нам не суть важно на какой странице, нам важно как это сделать -->
-            <!-- Выпадающие окна появляются при наведении на иконки -->
-            <!-- <div class="search">
-              <a href="#" class="">Поиск</a> - тут будет иконка на псевдоэлементе висеть
-              <div class=""> - общий класс для блока, который будет показывать, при наведении на блок вышеидущий .search
-                <form action="" method="">
-                  <div class="form-field">
-                    <input type="text" name="search" id="">
-                    <label for="">Что ищем?</label> - Зачем я добавил label, если можно прописать placeholder. Посмотрим на styleguide, как ведут себя поля когда в них установлен курсор http://prntscr.com/eykzuv. Текст подымается вверх, а если использовать placehodler или value, то так сделать не получится
-                  </div>
-                </form>
-              </div>
-            </div> -->
-            <div class="search">
-                <input type="text" name="search"><!--нужно ли оборачивать в форму и какие атрибуты еще пропиывать?-->
-            </div>
-            <div class="user-block"><!-- Этот блок должен оборачивать все правое содержимое, вместе с телефоном, т.е. находится выше, и в него должны входить: поиск, вход, корзина, телефоны -->
-              <!-- <div class="user-reg">
-                <a class="login" href="#">Вход</a>
-                <div class="">
-                  <form action="" method="">
-                    <div class="form-field">
-                      <input type="" name="" id="">
-                      <label for="">Электронаня почта</label> 
-                    </div>
-                    <div class="form-field">
-                      <input type="" name="" id="">
-                      <label for="">Пароль</label> 
-                    </div>
-                    Тут 2 блока: левый и правый
-                    В левом кнопка, в правом 2 ссылки
-                  </form>
+        <div class="background"><!--Центровщик, который меняет фон для всей страницы при смене слайдов-->
+            <header>
+                <div class="header-logo">
+                    <img src="http://placehold.it/150x100" alt="GllacyShop" width="" height="">
                 </div>
-              </div> -->
-              <a class="login" href="#">Вход</a>
-              <!-- <div class="basket">
-                <a class="basket" href="#">Пусто</a>
-              </div> -->
-              <a class="basket" href="#">Пусто</a><!--чет я тут вообще ни в чем не уверена-->
-              <!-- В конце надо поставить блок с телефоном -->
-            </div>
-        </header>
-        <main><!-- надо делать контейнером?-->
-            <section class="main-slider">
-                <h1>Крем-брюле и пломбир с малиновым джемом</h1><!--если это слайдер, то нарушается правило одиг h1 на страницу? надо другой тег ставить?-->
-                <!-- Если у тебя используется article или section, то они задают свою иерархию заголовков. Название слайдера не является заголовокм первого уровня -->
-                <div class="slider">
-                    <!-- Как верстать слайдер вам покажут на 4-ом вебинаре. Пока его разбирать не будем -->
-                    <input type="radio" id="btn-1" name="toggle" checked>
-                    <input type="radio" id="btn-2" name="toggle">
-                    <input type="radio" id="btn-3" name="toggle">
-                    <div class="slider-controls">
-                        <label for="btn-1"></label>
-                        <label for="btn-2"></label>
-                        <label for="btn-3"></label>
-                    </div>
-                    <div class="slider-inner">
-                        <div class="slider-slides">
-                            <img src="http://placehold.it/150x100"" alt="Крем-брюле и пломбир с малиновым джемом">
-                            <img src="http://placehold.it/150x100" alt="Какое-то мороженое">
-                            <img src="http://placehold.it/150x100"" alt="Какое-то мороженое">
+                <ul class="page-nav">
+                    <li>
+                        <a href="#">Каталог</a>
+                        <ul>
+                            <li><a href="#">Новинки</a></li>
+                            <li><a href="#">Сливочное</a></li>
+                            <li><a href="#">Щербеты</a></li>
+                            <li><a href="#">Фруктовый лед</a></li>
+                            <li><a href="#">Мелорин</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Доставка и оплата</a></li>
+                    <li><a href="#">О компании</a></li>
+                </ul>
+                <div class="header-right">
+                    <div class="search">
+                        <a href="#" class="">Поиск</a>
+                        <div class="block-hide">
+                            <form action="" method="">
+                                <div class="form-field">
+                                    <input type="text" name="search" id="">
+                                    <label for="">Что ищем?</label>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </div>
-                <a href=# class="btn">Давайте оба!</a>
-            </section>
-            <section class="presents">
-                <div class="presents-item"><!--я не всталяю сюда картинку, думаю ее в css пропишем. Верно?--><!-- Верно -->
-                    <span>Малинка даром!</span><!--Может ли это быть заголовком, или каким тегом размечать?--><!-- Это должен быть заголовок -->
-                    <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
-                    <a href="#" class="btn">Хочу варенье!</a>
-                </div>
-                <div class="presents-item">
-                    <span>Малинка даром!</span><!--Может ли это быть заголовком, каким тегом размечать?--><!-- Это должен быть заголовок -->
-                    <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
-                    <a href="#" class="btn">Хочу шоколадки!</a>
-                </div>
-            </section>
-            <section class="popular-items">
-                <div class="catalog-item"><!--можно ли исползовать article как для карточки товара? на странице с каталогом я использую этот же класс catalog-item, потому что это одинаковые сущности. Это верно, или нужен отдельны класс для мороженки на главной странице?-->
-                <!-- Все делаешь верно. article отлично подойдет для разметки карточки товара -->
-                  <!-- Разметка товара примерно следующая 
-                  <article calss="">
-                    <div class="catalog-item-img hit">
-                      <a href="">
-                        <img src="" alt="">
-                      </a>
-                      <div class="price">310 р/кг</div>
+                    <div class="user-reg">
+                        <a class="login" href="#">Вход</a>
+                        <div class="block-hide">
+                            <form action="" method="">
+                                <div class="form-field">
+                                    <input type="" name="" id="">
+                                    <label for="">Электронаня почта</label> 
+                                </div>
+                                <div class="form-field">
+                                    <input type="" name="" id="">
+                                    <label for="">Пароль</label> 
+                                </div>
+                            </form>
+                            <div class="login-btn">
+                                <button class="btn" type="submit">Войти</button>
+                            </div>
+                            <div class="login-remember">
+                                <a href="#">Забыли пароль</a>
+                                <a href="#">Новая регистрация</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="catalog-item-descr">
-                      <p class=""><a href=""></a></p>
+                    <div class="basket">
+                        <a class="basket" href="#">Пусто</a>
+                        <div class="block-hide"><!--Когда в корзине пусто нужено что-то показывать или hide-block вообще не надо?-->
+                        </div>
                     </div>
-                  </article> 
-                  -->
-                    <img src="http://placehold.it/150x100"" alt="Сливочное с апельсиновым джемом и цитрусовой стружккой">
-                    <b>310 р/кг</b>
-                    <p><a href="#">Сливочное с апельсиновым джемом и цитрусовой стружккой</a></p>
+                    <div class="work-time">
+                        <span>С 10 до 20 ежедневно</span>
+                        <span>8 812 450-25-25</span>
+                    </div>
                 </div>
-                <div class="catalog-item">
-                    <img src="http://placehold.it/150x100"" alt="Сливочно-кофейное с кусочками шоколада<">
-                    <b>380 р/кг</b>
-                    <p><a href="#">Сливочно-кофейное с кусочками шоколада</a></p>
-                </div>
-                <div class="catalog-item">
-                    <img src="http://placehold.it/150x100"" alt="Сливочно-клубничное с присыпкой из белого шоколада">
-                    <b>355 р/кг</b>
-                    <p><a href="#">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
-                </div>
-                <div class="catalog-item">
-                    <img src="http://placehold.it/150x100"" alt="Сливочное крем-брюле с карамельной подливокй">
-                    <b>415 р/кг</b>
-                    <p><a href="#">Сливочное крем-брюле с карамельной подливокй</a></p>
-                </div>
-            </section>
-            <section class="features">
-                <h2>Магазин Глейси — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес </h2><!--тут можно заголовок или нет? какого порядка? я что то запуталась--><!-- Тут бы я поставил h1 -->
-                <ul>
-                    <li class="feature-item">Все наше мороженое изготавливается на собственном производстве с использованием современного оборудования и проверенных временем технологий.</li><!-- стоит ли оборачивать текст внутри li в p?--><!-- Нет не стоит. потмо прийдется добавить каждому элементу li еще по дополинтельному класс, с помощью которого мы повесим иконки -->
-                    <li class="feature-item">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингридиенты и добавки произведены из натурального, экологически чистого сырья.</li>
-                    <li class="feature-item">Закупка ингридиентов производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывают долговременное сотрудничество.</li>
-                    <li class="feature-item">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, которые на дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</li>
-                </ul>
-            </section>
-            <div><!--надо ли давать какой0то класс? я даж не знаю как это назвать--><!-- Получается надо дать один и тот же класс, этому блоку и блоку с Малинками и Шоколадками -->
-                <section class="news">
-                    <h2>Новое в нашем блоге</h2>
-                    <p><a href="#">10 способов сервировки фруктовых щербетов к столу</a></p>
+            </header>
+            <main>
+                <section class="main-slider">
+                    <h2>Крем-брюле и пломбир с малиновым джемом</h2><!--h2 покатит? Кажется, что у меня бардак в иерарзии заголовков-->
+                    <div class="slider">
+                        <input type="radio" id="btn-1" name="toggle" checked>
+                        <input type="radio" id="btn-2" name="toggle">
+                        <input type="radio" id="btn-3" name="toggle">
+                        <div class="slider-controls">
+                            <label for="btn-1"></label>
+                            <label for="btn-2"></label>
+                            <label for="btn-3"></label>
+                        </div>
+                        <div class="slider-inner">
+                            <div class="slider-slides">
+                                <img src="http://placehold.it/150x100"" alt="Крем-брюле и пломбир с малиновым джемом">
+                                <img src="http://placehold.it/150x100" alt="Какое-то мороженое">
+                                <img src="http://placehold.it/150x100"" alt="Какое-то мороженое">
+                            </div>
+                        </div>
+                    </div>
+                    <a href=# class="btn">Давайте оба!</a>
                 </section>
-                <div class="subscribe">
-                    <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно=)</p>
-                    <!-- Форма + поле для оборачивания input + label, который тоже будет всплывать как в меню -->
-                    <input type="email" name="subscribe" placeholder="Электронная почта"><!-- надо ли это заворачивать в форму?-->
-                    <button class="btn" type="submit" value="email">Отправить</button>
+                <div class="half-width-block">
+                    <section class="presents-item-raspberry">
+                        <h3>Малинка даром!</h3><!--h3?-->
+                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
+                        <a href="#" class="btn">Хочу варенье!</a>
+                    </section>
+                    <section class="presents-item-chocolate">
+                        <h3>Шоколадки даром!</h3><!--h3?-->
+                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
+                        <a href="#" class="btn">Хочу шоколадки!</a>
+                    </section>
+                </section>
+                <section class="popular-items">
+                    <article class="catalog-item">
+                        <div class="catalog-item-img hit">
+                            <a href="#">
+                            <img src="http://placehold.it/150x100" alt="Сливочное с апельсиновым джемом и цитрусовой стружккой">
+                            </a>
+                            <div class="price">310 р/кг</div>
+                        </div>
+                        <div class="catalog-item-descr">
+                            <p class="catalog-item-name"><a href="">Сливочное с апельсиновым джемом и цитрусовой стружккой</a></p>
+                        </div>
+                    </article>
+                    <article class="catalog-item">
+                        <div class="catalog-item-img hit">
+                            <a href="#">
+                            <img src="http://placehold.it/150x100" alt="Сливочно-кофейное с кусочками шоколада">
+                            </a>
+                            <div class="price">380 р/кг</div>
+                        </div>
+                        <div class="catalog-item-descr">
+                            <p class="catalog-item-name"><a href="">Сливочно-кофейное с кусочками шоколада</a></p>
+                        </div>
+                    </article>
+                    <article class="catalog-item">
+                        <div class="catalog-item-img hit">
+                            <a href="#">
+                            <img src="http://placehold.it/150x100" alt="Сливочно-клубничное с присыпкой из белого шоколада">
+                            </a>
+                            <div class="price">355 р/кг</div>
+                        </div>
+                        <div class="catalog-item-descr">
+                            <p class="catalog-item-name"><a href="">Сливочно-клубничное с присыпкой из белого шоколада</a></p>
+                        </div>
+                    </article>
+                    <article class="catalog-item">
+                        <div class="catalog-item-img hit">
+                            <a href="#">
+                            <img src="http://placehold.it/150x100" alt="Сливочное крем-брюле с карамельной подливокй">
+                            </a>
+                            <div class="price">415 р/кг</div>
+                        </div>
+                        <div class="catalog-item-descr">
+                            <p class="catalog-item-name"><a href="">Сливочное крем-брюле с карамельной подливокй</a></p>
+                        </div>
+                    </article> 
+                </section>
+                <section class="features">
+                    <h1>Магазин Глейси — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес </h1>
+                    <ul>
+                        <li class="feature-item">Все наше мороженое изготавливается на собственном производстве с использованием современного оборудования и проверенных временем технологий.</li>
+                        <li class="feature-item">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингридиенты и добавки произведены из натурального, экологически чистого сырья.</li>
+                        <li class="feature-item">Закупка ингридиентов производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывают долговременное сотрудничество.</li>
+                        <li class="feature-item">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, которые на дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</li>
+                    </ul>
+                </section>
+                <div class="half-width-block">
+                    <section class="news">
+                        <h3>Новое в нашем блоге</h3><!--какой тут заголовок?-->
+                        <p><a href="#">10 способов сервировки фруктовых щербетов к столу</a></p>
+                    </section>
+                    <section class="subscribe"><!--какой тут заголовок?-->
+                        <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно=)</p>
+                        <form action="" method=""><!--так норм?-->
+                            <div class="form-field">
+                                <input type="email" name="subscribe" id="subscribe">
+                                <label for="subscribe">Электронная почта</label>
+                                <button class="btn" type="submit" value="email">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <section class="contacts">
-                <img src="http://placehold.it/150x100"" alt="Карта">
-                <div class="contacts-address">
-                    <p>Адрес главного офиса и онлафн магазина:<span>ул. Большая Конюшенная 19/8, Санкт-Петербург</span></p> 
-                    <p>Для заказов по тлефону: <span>8 812 450-25-25</span>(с 10 до 20 ежедневно)                        
-                    </p>
-                    <a href="#" class="btn">Форма обратной связи</a>
-                </div>
-            </section>
-            <!-- Тут надо заверстать форму обратной связи. Она скрыта по умолчанию http://prntscr.com/eyl6jl -->
-        </main>
-        <footer class="main-footer">
-                <section class="footer-social">
-                    <p>Давайте дружить!</p><!-- Видимо это было в барбершопе, в глейси такого нет -->
-                    <a class="social-btn social-btn-tw" href="#">Твиттер</a>
-                    <a class="social-btn social-btn-inst" href="#">Инстаграм</a>
-                    <a class="social-btn social-btn-fb" href="#">Фейсбук</a>
-                    <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
+                <section class="contacts">
+                    <img src="http://placehold.it/150x100"" alt="Карта">
+                    <div class="contacts-address">
+                        <p>Адрес главного офиса и онлафн магазина:<span>ул. Большая Конюшенная 19/8, Санкт-Петербург</span></p> 
+                        <p>Для заказов по тлефону: <span>8 812 450-25-25</span>(с 10 до 20 ежедневно)                        
+                        </p>
+                        <div class="feedback">
+                            <a href="#" class="btn">Форма обратной связи</a>
+                            <div class="feedback-form">
+                                <form action="" method="">
+                                    <div class="form-field">
+                                        <input type="text" name="name" id="name">
+                                        <label for="name">Что ищем?</label>
+                                        <input type="email" name="email" id="email">
+                                        <label for="email">Ваша почта для ответа?</label>
+                                        <textarea rows="3" name="comments" id="comments"></textarea>
+                                        <label for="comments">Напишите что-нибудь...</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </section>
-                <section class="footer-links"><!--может быть нужно еще что-то, чтобы выстроить их в два столбика?-->
-                <!-- Нет не надо, если после поставщиком поставишь "Наши документы", чтобы они шли в таком порядке, лево-право лево-право -->
-                    <a href="#">Для поставщиков</a><!-- Нужен дополнительный класс для сердчека и стилей -->
-                    <a href="#">О производстве</a>
-                    <a href="#">Наши документы</a>
-                    <a href="#">Экологические стандарты</a>
-                </section>
-                <section class="footer-copyright">
-                    <img src="http://placehold.it/150x100" alt="Логотип HTML Academy"><!-- Картинка, это ссылка на страницу академии, поэтмоу оберни в ссылку -->
-                    <p>Сделано в
-                    <a class="btn" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
-                </section>
-        </footer>
+            </main>
+            <footer class="main-footer">
+                    <section class="footer-social">
+                        <a class="social-btn social-btn-tw" href="#">Твиттер</a>
+                        <a class="social-btn social-btn-inst" href="#">Инстаграм</a>
+                        <a class="social-btn social-btn-fb" href="#">Фейсбук</a>
+                        <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
+                    </section>
+                    <section class="footer-links">
+                        <div class="heart">
+                            <a href="#">Для поставщиков</a>
+                        </div>
+                        <a href="#">Наши документы</a>
+                        <a href="#">О производстве</a>
+                        <a href="#">Экологические стандарты</a>
+                    </section>
+                    <section class="footer-copyright">
+                        <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="http://placehold.it/150x100" alt="Логотип HTML Academy"></a>
+                        <p>Сделано в
+                        <a class="btn" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
+                    </section>
+            </footer>
+        </div>
     </body>
 </html>
