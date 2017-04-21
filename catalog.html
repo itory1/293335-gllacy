@@ -5,17 +5,16 @@
         <title>HTML Academy: Глейси</title>
     </head>
     <body>
-        <div class="background"><!--Центровщик, который меняет фон для всей страницы при смене слайдов-->
-        <!-- Неправильный класс оставлен. Нужен http://prntscr.com/eyzeqf -->
+        <div class="container"><!--здесь нужен только обычный центровщик, так как смены слайлов нет-->
             <header>
                 <div class="header-logo">
                     <img src="http://placehold.it/150x100" alt="GllacyShop" width="" height="">
                 </div>
                 <ul class="page-nav">
                     <li>
-                        <a>Каталог</a><!-- Дай активный класс, он по макету рыжым выделен http://prntscr.com/eyzezv -->
-                        <ul><!-- Дай класс этому блоку, а то потом замучаешь писать сложные селекторы -->
-                            <li><a href="#">Новинки</a></li><!-- Сюда тоже дай класс, чтобы сделать как на макете. с подчеркиванием, выделено жирным http://prntscr.com/eyzdtd -->
+                        <a class="nav-item-active">Каталог</a><!--тут из-за вложенности вешаем не на li, а на ссылку-->
+                        <ul class="nav-inner">
+                            <li class="nav-inner-new"><a href="#">Новинки</a></li><!--классы вешаем на li-->
                             <li><a href="#">Сливочное</a></li>
                             <li><a href="#">Щербеты</a></li>
                             <li><a href="#">Фруктовый лед</a></li>
@@ -49,47 +48,46 @@
                                     <input type="" name="" id="">
                                     <label for="">Пароль</label> 
                                 </div>
-                                <!-- Кнопка и ссылки должны идти внутри формы -->
-                            </form>
-                            <!-- Блоки .login-btn и .login-remember - перенеси в форму -->
-                            <div class="login-btn">
+                                <div class="login-btn">
                                 <button class="btn" type="submit">Войти</button>
-                            </div>
-                            <div class="login-remember">
-                                <a href="#">Забыли пароль</a>
-                                <a href="#">Новая регистрация</a>
-                            </div>
+	                            </div>
+	                            <div class="login-remember">
+	                                <a href="#">Забыли пароль</a>
+	                                <a href="#">Новая регистрация</a>
+	                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="basket">
                         <a class="basket basket-full" href="#">2 товара</a>
-                        <!-- А блок .block-hide???? Он у нас отвечает показывать содержимое или нет -->
-                        <div class="basket-content">
-                            <ul class="basket-list">
-                                <li>
-                                    <button class="btn" type="button">Удалить</button>
-                                    <div class="basket-item-img"><img src="http://placehold.it/150x100" alt=">Пломбир с апельсиновым джемом"></div>
-                                    <p class="basket-item-name">Пломбир с апельсиновым джемом</p>
-                                    <p class="basket-item-weight">
-                                        <span class="basket-packet-weight">1,5 кг х</span>
-                                        <span class="basket-pasket-price">200 руб.</span>
-                                    </p>
-                                    <p class="basket-item-price">300 руб.</p>
-                                </li>
-                                <li>
-                                    <button class="btn" type="button">Удалить</button>
-                                    <div class="basket-item-img"><img src="http://placehold.it/150x100" alt="Клубничный пломбир с присыпкой из белого шоколада"></div>
-                                    <p class="basket-item-name">Клубничный пломбир с присыпкой из белого шоколада</p>
-                                    <p class="basket-item-weight">
-                                        <span class="basket-packet-weight">1,5 кг х</span>
-                                        <span class="basket-pasket-price">300 руб.</span>
-                                    </p>
-                                    <p class="basket-item-price">450 руб.</p>
-                                </li>
-                            </ul>
-                            <p class="basket-total-price">...</p><!-- Я оставил троеточие, чтобы ты сюда вставила текст с макета http://prntscr.com/eyzfwh -->
-                            <a href="#" class="btn">...</a><!-- Я оставил троеточие, чтобы ты сюда вставила текст с макета http://prntscr.com/eyzfz2 -->
-                        </div>
+                        <div class="block-hide">
+	                        <div class="basket-content">
+	                            <ul class="basket-list">
+	                                <li>
+	                                    <button class="btn" type="button">Удалить</button>
+	                                    <div class="basket-item-img"><img src="http://placehold.it/150x100" alt=">Пломбир с апельсиновым джемом"></div>
+	                                    <p class="basket-item-name">Пломбир с апельсиновым джемом</p>
+	                                    <p class="basket-item-weight">
+	                                        <span class="basket-packet-weight">1,5 кг х</span>
+	                                        <span class="basket-pasket-price">200 руб.</span>
+	                                    </p>
+	                                    <p class="basket-item-price">300 руб.</p>
+	                                </li>
+	                                <li>
+	                                    <button class="btn" type="button">Удалить</button>
+	                                    <div class="basket-item-img"><img src="http://placehold.it/150x100" alt="Клубничный пломбир с присыпкой из белого шоколада"></div>
+	                                    <p class="basket-item-name">Клубничный пломбир с присыпкой из белого шоколада</p>
+	                                    <p class="basket-item-weight">
+	                                        <span class="basket-packet-weight">1,5 кг х</span>
+	                                        <span class="basket-pasket-price">300 руб.</span>
+	                                    </p>
+	                                    <p class="basket-item-price">450 руб.</p>
+	                                </li>
+	                            </ul>
+	                            <p class="basket-total-price">Итого: 750 руб.</p>
+	                            <a href="#" class="btn">Оформить заказ</a>
+	                        </div>
+	                     </div>
                     </div>
                     <div class="work-time">
                         <span>С 10 до 20 ежедневно</span>
@@ -110,7 +108,7 @@
                     <form class="filter" action="https://echo.htmlacademy.ru" method="post">
                         <div class="filter-row">
                             <div class="filter-section">
-                                <label for="sort">Сортировка</label><!-- Сделай это лучше тегом <p> -->
+                                <label for="sort">Сортировка</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
                                 <select name="sort" id="sort">
                                     <option class="popular">По популярности</option>
                                     <option class="popular">Сначала недорогие</option>
@@ -120,10 +118,10 @@
                             </div>
                             <div class="filter-section">
                                 <input type="range" id="price" min="0" max="1000" step="100">
-                                <label for="price">Цена</label><!-- Сделай это лучше тегом <p>. А внутри помимо текста цены, не хватает еще и самих цен http://prntscr.com/eyzgku -->
+                                <label for="price">Цена: 100руб.-500руб.</label>
                             </div>
                              <div class="filter-section">
-                                <label>Жирность</label><!-- Сделай это лучше тегом <p> -->
+                                <label>Жирность</label>
                                 <input type="radio" name="fat" value="0" id="0" checked>
                                 </label>
                                 <label for="0">0%</label>
@@ -137,7 +135,7 @@
                         </div>
                         <div class="filter-row">
                             <div class="filter-section">
-                                <label>Наполнители<!-- Сделай это лучше тегом <p> -->
+                                <label>Наполнители
                                 <input type="checkbox" name="filler" value="chocolate" id="chocolate" checked>
                                 </label>
                                 <label for="chocolate">Шоколад</label>
@@ -296,7 +294,6 @@
                     </div>
                 </div>
             </main>
-            <!-- По футеру замечания как на главной -->
             <footer class="main-footer">
                     <section class="footer-social">
                         <a class="social-btn social-btn-tw" href="#">Твиттер</a>
@@ -305,9 +302,7 @@
                         <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
                     </section>
                     <section class="footer-links">
-                        <div class="heart">
-                            <a href="#">Для поставщиков</a>
-                        </div>
+                        <a href="#" class="heart">Для поставщиков</a>
                         <a href="#">Наши документы</a>
                         <a href="#">О производстве</a>
                         <a href="#">Экологические стандарты</a>
