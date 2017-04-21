@@ -6,15 +6,16 @@
     </head>
     <body>
         <div class="background"><!--Центровщик, который меняет фон для всей страницы при смене слайдов-->
+        <!-- Неправильный класс оставлен. Нужен http://prntscr.com/eyzeqf -->
             <header>
                 <div class="header-logo">
                     <img src="http://placehold.it/150x100" alt="GllacyShop" width="" height="">
                 </div>
                 <ul class="page-nav">
                     <li>
-                        <a>Каталог</a>
-                        <ul>
-                            <li><a href="#">Новинки</a></li>
+                        <a>Каталог</a><!-- Дай активный класс, он по макету рыжым выделен http://prntscr.com/eyzezv -->
+                        <ul><!-- Дай класс этому блоку, а то потом замучаешь писать сложные селекторы -->
+                            <li><a href="#">Новинки</a></li><!-- Сюда тоже дай класс, чтобы сделать как на макете. с подчеркиванием, выделено жирным http://prntscr.com/eyzdtd -->
                             <li><a href="#">Сливочное</a></li>
                             <li><a href="#">Щербеты</a></li>
                             <li><a href="#">Фруктовый лед</a></li>
@@ -48,7 +49,9 @@
                                     <input type="" name="" id="">
                                     <label for="">Пароль</label> 
                                 </div>
+                                <!-- Кнопка и ссылки должны идти внутри формы -->
                             </form>
+                            <!-- Блоки .login-btn и .login-remember - перенеси в форму -->
                             <div class="login-btn">
                                 <button class="btn" type="submit">Войти</button>
                             </div>
@@ -60,6 +63,7 @@
                     </div>
                     <div class="basket">
                         <a class="basket basket-full" href="#">2 товара</a>
+                        <!-- А блок .block-hide???? Он у нас отвечает показывать содержимое или нет -->
                         <div class="basket-content">
                             <ul class="basket-list">
                                 <li>
@@ -83,8 +87,8 @@
                                     <p class="basket-item-price">450 руб.</p>
                                 </li>
                             </ul>
-                            <p class="basket-total-price">...</p>
-                            <a href="#" class="btn">...</a>
+                            <p class="basket-total-price">...</p><!-- Я оставил троеточие, чтобы ты сюда вставила текст с макета http://prntscr.com/eyzfwh -->
+                            <a href="#" class="btn">...</a><!-- Я оставил троеточие, чтобы ты сюда вставила текст с макета http://prntscr.com/eyzfz2 -->
                         </div>
                     </div>
                     <div class="work-time">
@@ -106,7 +110,7 @@
                     <form class="filter" action="https://echo.htmlacademy.ru" method="post">
                         <div class="filter-row">
                             <div class="filter-section">
-                                <label for="sort">Сортировка</label>
+                                <label for="sort">Сортировка</label><!-- Сделай это лучше тегом <p> -->
                                 <select name="sort" id="sort">
                                     <option class="popular">По популярности</option>
                                     <option class="popular">Сначала недорогие</option>
@@ -116,10 +120,10 @@
                             </div>
                             <div class="filter-section">
                                 <input type="range" id="price" min="0" max="1000" step="100">
-                                <label for="price">Цена</label>
+                                <label for="price">Цена</label><!-- Сделай это лучше тегом <p>. А внутри помимо текста цены, не хватает еще и самих цен http://prntscr.com/eyzgku -->
                             </div>
                              <div class="filter-section">
-                                <label>Жирность</label>
+                                <label>Жирность</label><!-- Сделай это лучше тегом <p> -->
                                 <input type="radio" name="fat" value="0" id="0" checked>
                                 </label>
                                 <label for="0">0%</label>
@@ -133,7 +137,7 @@
                         </div>
                         <div class="filter-row">
                             <div class="filter-section">
-                                <label>Наполнители
+                                <label>Наполнители<!-- Сделай это лучше тегом <p> -->
                                 <input type="checkbox" name="filler" value="chocolate" id="chocolate" checked>
                                 </label>
                                 <label for="chocolate">Шоколад</label>
@@ -292,6 +296,7 @@
                     </div>
                 </div>
             </main>
+            <!-- По футеру замечания как на главной -->
             <footer class="main-footer">
                     <section class="footer-social">
                         <a class="social-btn social-btn-tw" href="#">Твиттер</a>

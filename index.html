@@ -14,8 +14,8 @@
 	                <ul class="page-nav">
 	                    <li>
 	                        <a href="#">Каталог</a>
-	                        <ul>
-	                            <li><a href="#">Новинки</a></li>
+	                        <ul><!-- Дай класс этому блоку, а то потом замучаешь писать сложные селекторы -->
+	                            <li><a href="#">Новинки</a></li><!-- Сюда тоже дай класс, чтобы сделать как на макете. с подчеркиванием, выделено жирным http://prntscr.com/eyzdtd -->
 	                            <li><a href="#">Сливочное</a></li>
 	                            <li><a href="#">Щербеты</a></li>
 	                            <li><a href="#">Фруктовый лед</a></li>
@@ -49,6 +49,7 @@
 	                                    <input type="" name="" id="">
 	                                    <label for="">Пароль</label> 
 	                                </div>
+	                                <!-- Кнопка и ссылки должны идти внутри формы -->
 	                            </form>
 	                            <div class="login-btn">
 	                                <button class="btn" type="submit">Войти</button>
@@ -62,17 +63,19 @@
 	                    <div class="basket">
 	                        <a class="basket" href="#">Пусто</a>
 	                        <div class="block-hide"><!--Когда в корзине пусто нужено что-то показывать или hide-block вообще не надо?-->
+	                        <!-- Лучше не показывать. Его если что создают через JS. Проверяют есть ли такой блок. Если нету, то создают его и поле с товаром и общей стоимостью, если есть, то просто добавляют еще поле с товаром -->
 	                        </div>
 	                    </div>
 	                    <div class="work-time">
-	                        <span>С 10 до 20 ежедневно</span>
-	                        <span>8 812 450-25-25</span>
+	                        <span>С 10 до 20 ежедневно</span><!-- Давай это в <p> обернем, чтобы каждый начинался на своей строчке -->
+	                        <span>8 812 450-25-25</span><!-- Давай это в <p> обернем, чтобы каждый начинался на своей строчке -->
 	                    </div>
 	                </div>
 	            </header>
 	            <main>
 	                <section class="main-slider">
 	                    <h2>Крем-брюле и пломбир с малиновым джемом</h2><!--h2 покатит? Кажется, что у меня бардак в иерарзии заголовков-->
+	                    <!-- Покатит -->
 	                    <div class="slider">
 	                        <input type="radio" id="btn-1" name="toggle" checked>
 	                        <input type="radio" id="btn-2" name="toggle">
@@ -95,11 +98,13 @@
 	                <div class="half-width-block">
 	                    <section class="presents-item-raspberry">
 	                        <h3>Малинка даром!</h3><!--h3?-->
+	                        <!-- Внутри section, можно и h2 -->
 	                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
 	                        <a href="#" class="btn">Хочу варенье!</a>
 	                    </section>
 	                    <section class="presents-item-chocolate">
 	                        <h3>Шоколадки даром!</h3><!--h3?-->
+	                        <!-- Внутри section, можно и h2 -->
 	                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
 	                        <a href="#" class="btn">Хочу шоколадки!</a>
 	                    </section>
@@ -162,6 +167,7 @@
 	                <div class="half-width-block">
 	                    <section class="news">
 	                        <h3>Новое в нашем блоге</h3><!--какой тут заголовок?-->
+	                        <!-- h2 -->
 	                        <p><a href="#">10 способов сервировки фруктовых щербетов к столу</a></p>
 	                    </section>
 	                    <section class="subscribe"><!--какой тут заголовок?-->
@@ -170,7 +176,7 @@
 	                            <div class="form-field">
 	                                <input type="email" name="subscribe" id="subscribe">
 	                                <label for="subscribe">Электронная почта</label>
-	                                <button class="btn" type="submit" value="email">Отправить</button>
+	                                <button class="btn" type="submit" value="email">Отправить</button><!-- Кнопку перенеси после блока .form-field -->
 	                            </div>
 	                        </form>
 	                    </div>
@@ -181,17 +187,27 @@
 	                        <p>Адрес главного офиса и онлафн магазина:<span>ул. Большая Конюшенная 19/8, Санкт-Петербург</span></p> 
 	                        <p>Для заказов по тлефону: <span>8 812 450-25-25</span>(с 10 до 20 ежедневно)                        
 	                        </p>
+	                        <!-- Тут ссылка на форму -->
+	                        <!-- Блок feedback лучше размести после section.contacts -->
 	                        <div class="feedback">
 	                            <a href="#" class="btn">Форма обратной связи</a>
 	                            <div class="feedback-form">
+	                            		<!-- Нужен крести закрытия формы -->
 	                                <form action="" method="">
+	                                		<!-- Каждый блок .form-field должен оборачивать пару: input + label  -->
 	                                    <div class="form-field">
 	                                        <input type="text" name="name" id="name">
 	                                        <label for="name">Что ищем?</label>
+	                                    <!-- Закрывается .form-field -->
+	                                    <!-- Открывается новый  .form-field -->
 	                                        <input type="email" name="email" id="email">
 	                                        <label for="email">Ваша почта для ответа?</label>
+	                                    <!-- Закрывается .form-field -->
+	                                    <!-- Открывается новый  .form-field -->
 	                                        <textarea rows="3" name="comments" id="comments"></textarea>
 	                                        <label for="comments">Напишите что-нибудь...</label>
+	                                    <!-- Закрывается .form-field -->
+	                                    <!-- Кнопка отправить -->
 	                                    </div>
 	                                </form>
 	                            </div>
@@ -207,7 +223,8 @@
 	                        <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
 	                    </section>
 	                    <section class="footer-links">
-	                        <div class="heart">
+	                        <div class="heart"><!-- не не не -->
+	                        		<!-- <a href="#" class="heart">Для поставщиков</a> - и всё, а div не нужен -->
 	                            <a href="#">Для поставщиков</a>
 	                        </div>
 	                        <a href="#">Наши документы</a>
