@@ -13,7 +13,7 @@ body {
     font-weight: 400;
     line-height: 41px;
 
-    color: #ffffff;
+    color: #fff;
 }
 
 .features h1 {
@@ -23,4 +23,171 @@ body {
     line-height: 30px;
 
     color: #323232;
+}
+
+.background {
+    margin: 0 auto;
+}
+
+.container {
+    width: 1146px;
+    margin: 0 auto;
+    padding: 0 27px;
+
+    outline: 1px solid red;
+}
+
+.clearfix::after {
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
+.header-logo {
+    float: left;
+
+    width: 154px;
+}
+
+.page-nav {
+    float: left;
+
+    width: 317px;
+
+    outline: 1px solid black;
+}
+
+.header-right {
+    float: right;
+
+    width: 500px;
+}
+
+.header-right {
+    float: right;
+
+    width: 560px;
+
+    outline: 1px solid red;
+}
+
+
+.search {
+    display: inline-block;
+
+    width: 150px;
+
+    vertical-align: top;
+
+    outline: 1px solid black;
+}
+
+
+.user-reg {
+    display: inline-block;
+
+    width: 150px;
+
+    vertical-align: top;
+
+    outline: 1px solid black;
+}
+
+.basket {
+    display: inline-block;
+
+    width: 150px;
+
+    vertical-align: top;
+
+    outline: 1px solid black;
+}
+
+.work-time {
+    float: right;
+
+    width: 150px;
+
+    outline: 1px solid black;
+}
+
+.features {
+    margin-bottom: 40px;
+    padding-top: 27px;
+    padding-left: 20px;
+
+    outline: 1px solid black;
+}
+
+.half-width {
+    float: left;
+
+    width: 560px;
+    margin-bottom: 40px;
+
+    outline: 1px solid red;
+}
+
+.popular-items {
+    font-size: 0;
+}
+
+.catalog-item {
+    font-size: 14px;
+
+    display: inline-block;
+    /*размер картинок нужно менять сразу в html? оригинальные значительно больше, и в css их размер не переплюнуть. а что если у нас резиновая верстка?*/
+
+    width: 267px;
+    margin-right: 26px;
+
+    vertical-align: baseline;
+}
+
+.catalog-item:nth-child(4n) {
+    margin-right: 0;
+}
+
+.feature-item {
+    display: inline-block;
+
+    width: 539px;
+    margin-bottom: 5px;
+
+    vertical-align: top;
+
+    outline: 1px solid black;
+}
+
+.contacts-address {
+    display: block;
+
+    width: 303px;
+
+    outline: 1px solid black;
+}
+
+.main-footer {
+    margin-top: 50px;
+}
+
+.footer-social {
+    float: left;
+
+    width: 267px;
+    margin-right: 26px;
+}
+
+.footer-links {
+    float: left;
+
+    width: 560px;
+    margin-right: 26px;
+}
+
+.footer-copyright {
+    float: right;
+
+    width: 267px;
 }
