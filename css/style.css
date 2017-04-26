@@ -14,6 +14,12 @@ body {
     line-height: 41px;
 
     color: #fff;
+
+}
+
+.page-title {
+    padding: 0 0 0 267px; /*отступ на случай, если в блоке появится больше текста, чтобы он не лез на блок с телефоном*/
+
 }
 
 .features h1 {
@@ -53,21 +59,16 @@ body {
 .page-nav {
     float: left;
 
-    width: 317px;
+    width: 600px;
 
     outline: 1px solid black;
 }
 
-.header-right {
-    float: right;
-
-    width: 500px;
-}
 
 .header-right {
     float: right;
 
-    width: 560px;
+    width: 340px;
 
     outline: 1px solid red;
 }
@@ -107,17 +108,20 @@ body {
 .work-time {
     float: right;
 
-    width: 150px;
+    width: 267px; /*запас на добавление текста*/
 
     outline: 1px solid black;
 }
 
 .features {
     margin-bottom: 40px;
-    padding-top: 27px;
-    padding-left: 20px;
-
+    padding: 27px 20px; /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
+ 
     outline: 1px solid black;
+}
+
+.features ul {
+    padding: 0;
 }
 
 .half-width {
@@ -129,48 +133,61 @@ body {
     outline: 1px solid red;
 }
 
-.popular-items {
+.half-width:first-child {
+    margin-right: 26px;
+}
+
+.popular-items, /*обнуляем шрифт у родительских блоков инлайновых элементов, чтобы не учитывался пробел между строчными*/
+.catalog {
     font-size: 0;
 }
 
 .catalog-item {
-    font-size: 14px;
+    font-size: 14px; /*возвращяем шрифт собственно у инлайновых элементов*/
 
     display: inline-block;
-    /*размер картинок нужно менять сразу в html? оригинальные значительно больше, и в css их размер не переплюнуть. а что если у нас резиновая верстка?*/
+    /*картинки вырезали сразу в нужном размере 267 на 267 (хотя оригинал 600 на 600). В css задали width:100% и height:auto, чтобы при изменении размера картинки
+    не выпали из родителя. Актуально особенно при резиновой верстке.*/
 
     width: 267px;
     margin-right: 26px;
 
-    vertical-align: baseline;
+    vertical-align: top;
 }
 
 .catalog-item:nth-child(4n) {
     margin-right: 0;
 }
 
+.catalog-item-img {
+width: 100%;
+height: auto;
+}
+
+
+
 .feature-item {
     display: inline-block;
 
     width: 539px;
-    margin-bottom: 5px;
+    margin:5px;
 
     vertical-align: top;
 
     outline: 1px solid black;
 }
 
+
+
 .contacts-address {
-    display: block;
+    margin: 0 0 0 auto; /*выравнять можно двумя способами:margin: 0 0 0 auto или float:right;*/
 
     width: 303px;
 
     outline: 1px solid black;
 }
 
-.main-footer {
-    margin-top: 50px;
-}
+
 
 .footer-social {
     float: left;
@@ -190,4 +207,14 @@ body {
     float: right;
 
     width: 267px;
+}
+
+.filter-row {
+    float: left;
+    width: 979px;
+    margin-bottom: 15px;
+}
+
+.filter-section {
+    display: inline-block;
 }
