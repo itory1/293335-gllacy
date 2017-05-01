@@ -1,29 +1,32 @@
 body {
-    font-family: 'Times New Roman';
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
 
+    min-width: 1200px; /*или тут 900?*/
+    margin: 0;
+    padding: 0;
+
     color: #323232;
+      background-color: #849d8f;
 }
 
 .page-title h1 {
-    font-family: 'Times New Roman';
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 35px;
     font-weight: 400;
     line-height: 41px;
 
     color: #fff;
-
 }
 
 .page-title {
     padding: 0 0 0 267px; /*отступ на случай, если в блоке появится больше текста, чтобы он не лез на блок с телефоном*/
-
 }
 
 .features h1 {
-    font-family: 'Times New Roman';
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 30px;
@@ -31,14 +34,38 @@ body {
     color: #323232;
 }
 
-.background {
+.site-wrapper {
     margin: 0 auto;
+
+    background: #849d8f url('../img/bg1.png') no-repeat top center;
+
+     transition: background-image 0.5s ease, background-color 0.5s ease;
+
 }
 
-.container {
-    width: 1146px;
-    margin: 0 auto;
-    padding: 0 27px;
+/* Псевдоэлементы с изображениями нужны только для предзагрузки картинок, чтобы они уже были в кеше 
+в момент переключения слайдов и сразу отображались */
+
+.site-wrapper::before,
+.site-wrapper::after {
+  content: "";
+
+  visibility: hidden;
+}
+
+.site-wrapper::before {
+  background-image: url("slide-2.png");
+}
+
+.site-wrapper::after {
+  background-image: url("slide-3.png");
+}
+
+
+.content-wrapper {
+    width: 1146px; /*надо делать под 900 или под 1200?*/
+    margin: auto;
+    padding: 10px 27px;
 
     outline: 1px solid red;
 }
@@ -57,66 +84,363 @@ body {
 }
 
 .page-nav {
+    font-weight: 700;
+
     float: left;
 
-    width: 600px;
+    max-width: 600px;
+    margin: 0 10px;
+    padding: 16px 0;
 
-    outline: 1px solid black;
+    list-style: none;
 }
 
+.page-nav > li {
+    /*как сделать чтобы меню не скрывлось?*/
+    font-size: 16px;
+    line-height: 18px;
+
+    position: relative;
+
+    display: inline-block;
+
+    vertical-align: top;
+}
+
+
+
+.nav-inner-new {
+    font-weight: 700; /*как сделать, чтобы полоска не до конца шла?*/
+
+    border-bottom: 1px solid lightgrey;
+}
+
+.page-nav a {
+    display: block;
+
+    padding: 5px 15px;
+
+    color: #fff;
+}
+
+.page-nav > li > a:hover {
+    text-decoration: none;
+
+    color: #000;
+    border-radius: 30px;
+    background-color: #f8f7f4;
+}
+
+.page-nav .nav-inner {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+
+    position: absolute;
+    top: 37px;
+    left: -4px;
+
+    display: none;
+
+    min-width: 145px;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    border-radius: 5px;
+    background-color: #f8f7f4;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .4);
+}
+
+.page-nav > li:hover .nav-inner {
+    display: block;
+}
+
+.page-nav .nav-inner a {
+    padding: 6px 20px;
+
+    text-decoration: none;
+
+    color: #000;
+}
+
+.page-nav .nav-inner a:hover {
+    background-color: #fbded8;
+}
 
 .header-right {
     float: right;
 
-    width: 340px;
+    width: 340px; 
+ /*не могу сообразить как значки входа, поиска и корзины прибить вправо. 
+    Если сделать float:right, у них порядок меняется.*/
+}
 
-    outline: 1px solid red;
+.block-hide {
+    display: none;
 }
 
 
 .search {
-    display: inline-block;
+    font-size: 0;
 
-    width: 150px;
+    position: relative;
+
+    display: inline-block;
+    float: left;
+
+    width: 30px;
+    max-width: 150px;
+    height: 30px;
+    margin: 12px;
+    padding: 1px;
 
     vertical-align: top;
 
-    outline: 1px solid black;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, .2) url('../img/icon-search.png') no-repeat center;
 }
 
-
-.user-reg {
-    display: inline-block;
-
-    width: 150px;
-
-    vertical-align: top;
-
-    outline: 1px solid black;
+.search:hover {
+    background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
 }
+
+.login {
+    font-size: 14px;
+    line-height: 16px;
+
+    position: relative;
+
+    float: left;
+
+    max-width: 150px;
+    margin-top: 12px;
+    margin-right: 12px;
+    padding: 8px 15px;
+    padding-left: 45px;
+
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2);
+}
+
+.login::before {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+
+    background: url('../img/icon-login.png') no-repeat center;
+}
+
+.login:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 1);
+}
+
+.login:hover::before {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+
+    background: url('../img/icon-login black.png') no-repeat center;
+}
+
 
 .basket {
-    display: inline-block;
+    font-size: 14px;
+    line-height: 16px;
 
-    width: 150px;
+    position: relative;
 
-    vertical-align: top;
+    float: left;
 
-    outline: 1px solid black;
+    max-width: 150px;
+    margin-top: 12px;
+    padding: 8px 15px;
+    padding-left: 45px;
+
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2);
 }
+
+.basket::before {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+
+    background: url('../img/icon-basket.png') no-repeat center;
+}
+
 
 .work-time {
     float: right;
+    clear: both; /*запрещаем обтекание, чтобы разместить блок под входом*/
 
     width: 267px; /*запас на добавление текста*/
 
-    outline: 1px solid black;
+    text-align: right;
+}
+
+.work-time p {
+    margin: 0;
+    padding: 0;
+}
+
+.work-time .time {
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #fff;
+}
+
+.work-time .tel {
+    font-size: 22px;
+    line-height: 24px;
+
+    color: #fff;
+}
+
+body > input[type="radio"] {
+  display: none;
+}
+
+ 
+
+
+.slider {
+  position: relative;
+
+  padding-top: 270px;
+
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.slide {
+  display: none;
+}
+
+.slide-title {
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 72px;
+}
+
+.slide-btn { /*что все это значит и как это снимать?*/
+  display: inline-block;
+  padding: 12px 50px;
+
+  font-weight: 600;
+  font-size: 31px;
+  line-height: 41px;
+  vertical-align: top;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
+
+  background: #f26843;
+  background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
+  background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
+  background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+  border-radius: 100px;
+  box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+}
+
+.slide-btn:hover {
+  background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+  background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+  background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+  box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.slide-btn:active {
+  background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+  background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
+  background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+  box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.slider-controls label {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+
+  vertical-align: top;
+
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-controls {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  z-index: 20;
+
+  font-size: 0;
+}
+
+
+#btn-1:checked ~ .site-wrapper #slide1,
+#btn-2:checked ~ .site-wrapper #slide2,
+#btn-3:checked ~ .site-wrapper #slide3 {
+  display: block;
+}
+
+#btn-1:checked ~ .site-wrapper {
+  background-color: #849d8f;
+  background-image: url("../img/bg1.png");
+}
+
+#btn-2:checked ~ .site-wrapper {
+  background-color: #8996a6;
+  background-image: url("../img/bg2.png");
+}
+
+#btn-3:checked ~ .site-wrapper {
+  background-color: #9d8b84;
+  background-image: url("../img/bg3.png");
+}
+
+#btn-1:checked ~ .site-wrapper label[for="btn-1"],
+#btn-2:checked ~ .site-wrapper label[for="btn-2"],
+#btn-3:checked ~ .site-wrapper label[for="btn-3"] {
+  background-color: #ffffff;
 }
 
 .features {
     margin-bottom: 40px;
     padding: 27px 20px; /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
- 
+
     outline: 1px solid black;
 }
 
@@ -131,13 +455,71 @@ body {
     margin-bottom: 40px;
 
     outline: 1px solid red;
+    color: #fff;
+ margin-right: 26px;
+ font-size: 18px;
+ line-height: 20px;
+ font-weight: 700;
+
+
 }
 
-.half-width:first-child {
-    margin-right: 26px;
+.half-width:last-child {
+  margin-right: 0;
 }
 
-.popular-items, /*обнуляем шрифт у родительских блоков инлайновых элементов, чтобы не учитывался пробел между строчными*/
+.half-width .container {
+    margin: 20px;
+    width: 520px;
+}
+
+.raspberry {
+    background: #ac1d33  url("../img/raspberry.jpg") no-repeat center;
+}
+
+.сhocolate {
+    background: #583a2d  url("../img/chocolate.jpg") no-repeat center;
+
+}
+
+.half-width .btn { /*что все это значит и как это снимать?*/
+  display: inline-block;
+  padding: 10px 20px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  vertical-align: top;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
+
+
+  background: #f26843;
+  background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
+  background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
+  background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+  border-radius: 100px;
+  box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+}
+
+.half-width .btn:hover {
+  background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+  background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+  background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+  box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.half-width .btn:active {
+  background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+  background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
+  background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+  box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+
+.popular-items,
+/*обнуляем шрифт у родительских блоков инлайновых элементов, чтобы не учитывался пробел между строчными*/
 .catalog {
     font-size: 0;
 }
@@ -160,8 +542,22 @@ body {
 }
 
 .catalog-item-img {
-width: 100%;
-height: auto;
+    margin-bottom: 20px;
+}
+
+.catalog-item-img img {
+    width: 100%;/*Задано не верно! Не тому элементу*/
+    height: auto;/*Задано не верно! Не тому элементу*/
+    /*// Это блок? он по умолчанию занимает 100% ширины блока. Высоту ему можешь не задавать. У него будет отстпу вниз
+  // Внутри него идет ссылка ее сделай блочной ей можешь /*что тут нужно? сделать ссылку блочной?
+  // Внутри ссылки идет изображение, ему задай как раз max-width: 100%; height: auto;*/
+  border-radius: 50%; /*как убрать белую риску?*/
+}
+.catalog-item-name a {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600px;
+    color: #fff;
 }
 
 
@@ -170,7 +566,6 @@ height: auto;
     display: inline-block;
 
     width: 539px;
-    margin:5px;
 
     vertical-align: top;
 
@@ -178,11 +573,14 @@ height: auto;
 }
 
 
+.map {
+    max-width: 100%;
+    height: auto;
+}
 
 .contacts-address {
-    margin: 0 0 0 auto; /*выравнять можно двумя способами:margin: 0 0 0 auto или float:right;*/
-
     width: 303px;
+    margin: 0 0 0 auto; /*выравнять можно двумя способами:margin: 0 0 0 auto или float:right;*/
 
     outline: 1px solid black;
 }
@@ -211,6 +609,7 @@ height: auto;
 
 .filter-row {
     float: left;
+
     width: 979px;
     margin-bottom: 15px;
 }
