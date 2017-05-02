@@ -59,9 +59,13 @@ body {
 .page-nav {
     float: left;
 
-    width: 600px;
+    max-width: 600px;
 
     outline: 1px solid black;
+}
+
+.nav-inner {
+    white-space: nowrap;
 }
 
 
