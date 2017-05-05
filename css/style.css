@@ -9,26 +9,36 @@ body {
     padding: 0;
 
     color: #323232;
-      background-color: #849d8f;
+    background-color: #849d8f;
 }
+
+html {
+    box-sizing: border-box;
+}
+
 
 .page-title h1 {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 35px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 41px;
 
     color: #fff;
 }
 
 .page-title {
-    padding: 0 0 0 267px; /*отступ на случай, если в блоке появится больше текста, чтобы он не лез на блок с телефоном*/
+    padding: 0 267px 0 0; /*отступ на случай, если в блоке появится больше текста, чтобы он не лез на блок с телефоном*/
+}
+
+.inner-page h1 {
+    margin:0;
+    padding: 0;
 }
 
 .features h1 {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 30px;
 
     color: #323232;
@@ -37,10 +47,9 @@ body {
 .site-wrapper {
     margin: 0 auto;
 
+    transition: background-image .5s ease, background-color .5s ease;
+
     background: #849d8f url('../img/bg1.png') no-repeat top center;
-
-     transition: background-image 0.5s ease, background-color 0.5s ease;
-
 }
 
 /* Псевдоэлементы с изображениями нужны только для предзагрузки картинок, чтобы они уже были в кеше 
@@ -48,17 +57,17 @@ body {
 
 .site-wrapper::before,
 .site-wrapper::after {
-  content: "";
+    visibility: hidden;
 
-  visibility: hidden;
+    content: '';
 }
 
 .site-wrapper::before {
-  background-image: url("slide-2.png");
+    background-image: url('slide-2.png');
 }
 
 .site-wrapper::after {
-  background-image: url("slide-3.png");
+    background-image: url('slide-3.png');
 }
 
 
@@ -67,7 +76,6 @@ body {
     margin: auto;
     padding: 10px 27px;
 
-    outline: 1px solid red;
 }
 
 .clearfix::after {
@@ -89,23 +97,41 @@ body {
     float: left;
 
     max-width: 600px;
-<<<<<<< HEAD
-=======
     margin: 0 10px;
     padding: 16px 0;
->>>>>>> origin/master
 
     list-style: none;
 }
 
-<<<<<<< HEAD
-.nav-inner {
-    white-space: nowrap;
+.drop .current {
+    background: #d27760;
+     text-decoration: none;
+    color: #fff;
+    border-radius: 30px;
 }
 
-=======
+.page-nav a {
+    position: relative;
+
+    text-decoration: none;
+}
+
+.page-nav a:after:not(.current) {
+    position: absolute;
+    right: 15px; /*говорим, чтобы подчекивание начиналось на 15px справа и слева от li. У ссылки фиксированные паддинги на 15px, поэтому 15px, получается подчеркивание четко под текстом*/
+    bottom: 1px;
+    bottom: 4px;
+    left: 15px;
+
+    height: 0;
+
+    content: '';
+
+    border-bottom: 1px solid rgba(255,255,255, .2);
+}
+
+
 .page-nav > li {
-    /*как сделать чтобы меню не скрывлось?*/
     font-size: 16px;
     line-height: 18px;
 
@@ -140,16 +166,18 @@ body {
     background-color: #f8f7f4;
 }
 
-.page-nav .nav-inner {
+.page-nav > li > a:active {
+    text-decoration: none;
+box-shadow: inset 0 2px 1px #696969;
+    color: #000;
+}
+
+.nav-inner {
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;
 
-    position: absolute;
-    top: 37px;
-    left: -4px;
-
-    display: none;
+    overflow: hidden; /*убрали углы*/
 
     min-width: 145px;
     margin: 0;
@@ -157,16 +185,29 @@ body {
 
     list-style: none;
 
+    white-space: nowrap;
+
     border-radius: 5px;
     background-color: #f8f7f4;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .4);
 }
 
-.page-nav > li:hover .nav-inner {
+.menu-drop {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: -4px;
+
+    display: none;
+
+    padding: 10px 0 0;
+}
+.drop:hover .menu-drop {
     display: block;
 }
 
-.page-nav .nav-inner a {
+
+.nav-inner a {
     padding: 6px 20px;
 
     text-decoration: none;
@@ -174,17 +215,29 @@ body {
     color: #000;
 }
 
-.page-nav .nav-inner a:hover {
+.nav-inner a:hover:not(.current) {
+    display: block;
+
     background-color: #fbded8;
 }
->>>>>>> origin/master
+
+.nav-inner a:active {
+    display: block;
+
+    background-color: #f6b5a5;
+}
+
+.nav-inner .current {
+    background: #d27760;
+     text-decoration: none;
+    color: #fff;
+    border-radius: 0px;
+}
 
 .header-right {
     float: right;
 
-    width: 340px; 
- /*не могу сообразить как значки входа, поиска и корзины прибить вправо. 
-    Если сделать float:right, у них порядок меняется.*/
+    max-width: 340px;
 }
 
 .block-hide {
@@ -216,15 +269,21 @@ body {
     background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
 }
 
+.user-reg {
+    /*флоатим родителя, а не ссылку*/
+    float: left;
+
+    max-width: 150px;
+}
+
 .login {
     font-size: 14px;
     line-height: 16px;
 
     position: relative;
 
-    float: left;
+    display: inline-block;
 
-    max-width: 150px;
     margin-top: 12px;
     margin-right: 12px;
     padding: 8px 15px;
@@ -282,11 +341,14 @@ body {
     padding: 8px 15px;
     padding-left: 45px;
 
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2);
+}
+
+.basket-link {
     text-decoration: none;
 
     color: #fff;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, .2);
 }
 
 .basket::before {
@@ -301,6 +363,21 @@ body {
 
     background: url('../img/icon-basket.png') no-repeat center;
 }
+
+.inner-page .basket::after {
+ position: absolute;
+    top: 5px;
+    left: 15px;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+
+    background: url('../img/icon-basket-full.png') no-repeat center;
+
+}
+
 
 
 .work-time {
@@ -331,200 +408,426 @@ body {
     color: #fff;
 }
 
-body > input[type="radio"] {
-  display: none;
+body > input[type='radio'] {
+    display: none;
 }
 
- 
+
 
 
 .slider {
-  position: relative;
+    position: relative;
 
-  padding-top: 270px;
+    margin-bottom: 30px;
+    padding-top: 270px;
 
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 40px;
+    text-align: center;
+
+    color: #fff;
 }
 
 .slide {
-  display: none;
+    display: none;
 }
 
 .slide-title {
-  width: 700px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 72px;
 
-  font-weight: 800;
-  font-size: 60px;
-  line-height: 72px;
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
 }
 
-.slide-btn { /*что все это значит и как это снимать?*/
-  display: inline-block;
-  padding: 12px 50px;
+.slide-btn {
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 41px;
+    /*что все это значит и как это снимать?*/
 
-  font-weight: 600;
-  font-size: 31px;
-  line-height: 41px;
-  vertical-align: top;
-  color: #ffffff;
-  text-decoration: none;
-  text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
+    display: inline-block;
 
-  background: #f26843;
-  background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
-  background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
-  background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
-  border-radius: 100px;
-  box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+    padding: 12px 50px;
+
+    vertical-align: top;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 100px;
+    background: #f26843;
+    background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
+    background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
+    background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+    box-shadow: 0 2px 2px rgba(172, 16, 0, .64);
+    text-shadow: 0 2px 5px rgba(160, 32, 11, .76);
 }
 
 .slide-btn:hover {
-  background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
-  background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
-  background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
-  box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+    background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+    background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+    background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+    box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
 }
 
 .slide-btn:active {
-  background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
-  background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
-  background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
-  box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+    background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+    background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
+    background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+    box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
 }
 
 .slider-controls label {
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  margin-right: 8px;
+    display: inline-block;
 
-  vertical-align: top;
+    width: 17px;
+    height: 17px;
+    margin-right: 8px;
 
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  cursor: pointer;
+    cursor: pointer;
+    vertical-align: top;
+
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background-color: transparent;
 }
 
 .slider-controls {
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  z-index: 20;
+    font-size: 0;
 
-  font-size: 0;
+    position: absolute;
+    z-index: 20;
+    bottom: 25px;
+    left: 0;
 }
 
 
 #btn-1:checked ~ .site-wrapper #slide1,
 #btn-2:checked ~ .site-wrapper #slide2,
 #btn-3:checked ~ .site-wrapper #slide3 {
-  display: block;
+    display: block;
 }
 
 #btn-1:checked ~ .site-wrapper {
-  background-color: #849d8f;
-  background-image: url("../img/bg1.png");
+    background-color: #849d8f;
+    background-image: url('../img/bg1.png');
 }
 
 #btn-2:checked ~ .site-wrapper {
-  background-color: #8996a6;
-  background-image: url("../img/bg2.png");
+    background-color: #8996a6;
+    background-image: url('../img/bg2.png');
 }
 
 #btn-3:checked ~ .site-wrapper {
-  background-color: #9d8b84;
-  background-image: url("../img/bg3.png");
+    background-color: #9d8b84;
+    background-image: url('../img/bg3.png');
 }
 
-#btn-1:checked ~ .site-wrapper label[for="btn-1"],
-#btn-2:checked ~ .site-wrapper label[for="btn-2"],
-#btn-3:checked ~ .site-wrapper label[for="btn-3"] {
-  background-color: #ffffff;
+#btn-1:checked ~ .site-wrapper label[for='btn-1'],
+#btn-2:checked ~ .site-wrapper label[for='btn-2'],
+#btn-3:checked ~ .site-wrapper label[for='btn-3'] {
+    background-color: #fff;
 }
 
 .features {
-    margin-bottom: 40px;
-    padding: 27px 20px; /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
+    font-size: 16px;
+    font-weight: 400px;
+    line-height: 22px;
 
-    outline: 1px solid black;
+    margin-bottom: 40px;
+    /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
+    padding: 27px 20px;
+
+    border-radius: 10px;
+    background: #eaddbf url('../img/pattern-wafel.png');
 }
 
-.features ul {
+.features h1 {
+    margin: 0;
     padding: 0;
 }
 
+.features ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.feature-item {
+    position: relative;
+
+    display: inline-block;
+
+    max-width: 480px;
+    margin-right: 26px;
+    padding-top: 20px;
+    padding-left: 57px;
+}
+
+.feature-item:nth-child(2n) {
+    margin-right: 0;
+}
+
+
+.ice::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 49px;
+    height: 49px;
+
+    content: '';
+
+    background: url('../img/icon-seo-ice.png');
+}
+
+.cow::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 49px;
+    height: 49px;
+
+    content: '';
+
+    background: url('../img/icon-seo-cow.png');
+}
+
+.leaf::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 49px;
+    height: 49px;
+
+    content: '';
+
+    background: url('../img/icon-seo-leaf.png');
+}
+
+.thermometer::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 49px;
+    height: 49px;
+
+    content: '';
+
+    background: url('../img/icon-seo-thermometer.png');
+}
+
 .half-width {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+
     float: left;
 
     width: 560px;
+    margin-right: 26px;
     margin-bottom: 40px;
 
-    outline: 1px solid red;
     color: #fff;
- margin-right: 26px;
- font-size: 18px;
- line-height: 20px;
- font-weight: 700;
-
-
+    border-radius: 10px;
 }
 
 .half-width:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 .half-width .container {
-    margin: 20px;
     width: 520px;
+    margin: 20px;
+
+    text-align: right;
+}
+
+.half-width .container h2,
+.half-width .container p {
+    text-align: left;
+}
+
+.half-width .container h2 {
+    margin: 0;
 }
 
 .raspberry {
-    background: #ac1d33  url("../img/raspberry.jpg") no-repeat center;
+    background: #ac1d33  url('../img/raspberry.jpg') no-repeat center;
 }
 
 .сhocolate {
-    background: #583a2d  url("../img/chocolate.jpg") no-repeat center;
-
+    background: #583a2d  url('../img/chocolate.jpg') no-repeat center;
 }
 
-.half-width .btn { /*что все это значит и как это снимать?*/
-  display: inline-block;
-  padding: 10px 20px;
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 20px;
-  vertical-align: top;
-  color: #ffffff;
-  text-decoration: none;
-  text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
-
-
-  background: #f26843;
-  background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
-  background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
-  background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
-  border-radius: 100px;
-  box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+.news {
+    background: #fff  url('../img/news-strawberry.jpg') no-repeat center;
 }
 
-.half-width .btn:hover {
-  background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
-  background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
-  background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
-  box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+.news h2 {
+    font-size: 16px;
+    line-height: 22px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #000;
 }
 
-.half-width .btn:active {
-  background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
-  background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
-  background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
-  box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+.news a {
+    font-size: 24px;
+    line-height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    color: #000;
+}
+
+.news .container {
+    width: 290px;
+    min-height: 170px;
+}
+
+.subscribe {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+
+    overflow: hidden;
+
+    width: 548px;
+
+    color: #000;
+    border: 6px solid transparent;
+    border-radius: 10px;
+    background: #f8f7f4 url('../img/pattern-email.png');
+}
+.subscribe .container {
+    margin: 0;
+    padding: 20px;
+
+    background: #f8f7f4;
+}
+
+.subscribe-form {
+    font-size: 0;
+
+    text-align: left;
+}
+
+.form-field {
+    position: relative;
+}
+
+.subscribe-form .form-field {
+    display: inline-block;
+
+    width: 368px;
+    margin-right: 20px;
+
+    vertical-align: middle;
+}
+
+.subscribe-form .btn {
+    display: inline-block;
+
+    width: 130px;
+
+    vertical-align: middle;
+}
+
+.form-input {
+    font-size: 16px;
+    line-height: 24px;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 9px 14px;
+
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-input:valid:focus + .form-label {
+    font-size: 11px;
+    line-height: 13px;
+
+    top: -15px;
+
+    color: #5b9ddf;
+}
+.form-label {
+    font-size: 16px;
+    line-height: 24px;
+
+    position: absolute;
+    top: 10px;
+    left: 14px;
+
+    transition: .3s;
+
+    color: #999;
+}
+
+.contacts .btn {
+    padding: 10px 25px;
+}
+
+.btn {
+    /*что все это значит и как это снимать?*/
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+    display: inline-block;
+
+    cursor: pointer;
+    vertical-align: top;
+    text-decoration: none;
+
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    background: #f26843;
+    background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
+    background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
+    background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+    box-shadow: 0 2px 2px rgba(172, 16, 0, .64);
+    text-shadow: 0 2px 5px rgba(160, 32, 11, .76);
+}
+
+
+.btn:hover {
+    background:    -moz-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+    background: -webkit-linear-gradient(top, #f58669 0%, #ec6f5e 100%);
+    background:         linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+    box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.btn:active {
+    background:    -moz-linear-gradient(top, #d84732 0%, #e1613e 100%);
+    background: -webkit-linear-gradient(top, #d84732 0%, #e1613e 100%);
+    background:         linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+    box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+}
+
+.half-width .btn {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+
+    padding: 10px 20px;
+}
+
+.popular-items {
+    margin-right: -13px;
+    margin-bottom: 35px;
+    margin-left: -13px;
 }
 
 
@@ -534,17 +837,41 @@ body > input[type="radio"] {
     font-size: 0;
 }
 
+.catalog {
+    margin-right: -13px;
+    margin-left: -13px; /*ширина окна 1146px (1200 - минус центровщик). Нам надо расположить 4 мороженки, ширина которых вместе с ховерной частью - 293px
+    293*4=1172 (разница 26px). Чтобы влезли боковые, уменшаем маргин на -13px*/
+}
+
 .catalog-item {
     font-size: 14px; /*возвращяем шрифт собственно у инлайновых элементов*/
 
+    position: relative;
+
     display: inline-block;
+    display: inline-block;
+
+    box-sizing: border-box;
     /*картинки вырезали сразу в нужном размере 267 на 267 (хотя оригинал 600 на 600). В css задали width:100% и height:auto, чтобы при изменении размера картинки
     не выпали из родителя. Актуально особенно при резиновой верстке.*/
+    width: 293px;
+    min-height: 323px; /*зачем туту минимальная высота?*/
+    min-height: 323px;
+    margin-bottom: -43px; /*чтобы налезала на нижнюю картинку*/
+    padding: 6px 13px;
 
-    width: 267px;
-    margin-right: 26px;
-
+    text-align: center;
     vertical-align: top;
+    vertical-align: top;
+
+    border-radius: 5px;
+}
+
+.catalog-item:hover {
+    z-index: 20;
+
+    background: rgba(248,247,244,.3);
+    box-shadow: 0 20px 20px rgba(0,0,0,.08);
 }
 
 .catalog-item:nth-child(4n) {
@@ -552,69 +879,434 @@ body > input[type="radio"] {
 }
 
 .catalog-item-img {
+    position: relative;
+
     margin-bottom: 20px;
 }
 
-.catalog-item-img img {
-    width: 100%;/*Задано не верно! Не тому элементу*/
-    height: auto;/*Задано не верно! Не тому элементу*/
-    /*// Это блок? он по умолчанию занимает 100% ширины блока. Высоту ему можешь не задавать. У него будет отстпу вниз
-  // Внутри него идет ссылка ее сделай блочной ей можешь /*что тут нужно? сделать ссылку блочной?
-  // Внутри ссылки идет изображение, ему задай как раз max-width: 100%; height: auto;*/
-  border-radius: 50%; /*как убрать белую риску?*/
+.catalog-item-img:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 61px;
+    height: 61px;
+
+    content: '';
+
+    border-radius: 50%;
+    background: #fff url('../img/hit.png') no-repeat 50% 50%;
 }
+
+.catalog-item-img img {
+    overflow: hidden;
+
+    width: 100%;
+    width: 267px;
+    height: auto;
+
+    border-radius: 50%; /*как убрать белую риску?*/
+}
+
 .catalog-item-name a {
     font-size: 16px;
-    line-height: 18px;
     font-weight: 600px;
+    line-height: 18px;
+
+    position: relative;
+
+    display: inline-block;
+
+    text-align: center;
+    text-decoration: none;
+
     color: #fff;
 }
 
 
 
-.feature-item {
+
+.catalog-item-descr .btn {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
+    visibility: hidden;
+
+    width: 201px;
+    padding: 12px 18px;
+    padding-top: 14px;
+    padding-bottom: 13px;
+
+    vertical-align: middle;
+
+    border-radius: 25px;
+}
+
+.catalog-item:hover .btn {
+    visibility: visible;
+}
+
+
+.price {
+    font-size: 45px;
+    font-weight: 700;
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+
+    width: 170px;
+
+    color: #fff;
+}
+
+.price:before {
+    position: absolute;
+    top: 1px;
+    left: 90px;
+
+    width: 31px;
+    height: 36px;
+
+    content: '';
+
+    background: url('../img/rub.png') no-repeat 50% 50%;
+}
+
+.price span {
+    font-size: 30px;
+    line-height: 45px;
+
+    padding-left: 25px;
+}
+
+.contacts {
+    position: relative;
+
+    padding: 60px 0;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 1200px;
+    height: auto;
+    margin-left: -600px;
+}
+.street {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
+    width: 230px;
+}
+.street span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+    display: block;
+
+    width: 160px;
+}
+.feedback {
+    display: none;
+}
+.contacts {
+    overflow: hidden;
+}
+.contacts-address {
+    position: relative;
+    z-index: 10;
+
+    float: right;
+
+    width: 300px;
+
+    text-align: right;
+
+    border-radius: 10px;
+    background: #fff;
+}
+
+
+.contacts-address p {
+    text-align: left;
+}
+
+.contacts-address .container {
+    margin: 30px 20px;
+}
+.main-footer {
+    padding-top: 20px;
+    padding-bottom: 25px;
+
+    outline: 1px solid black;
+}
+
+.footer-social {
+    font-size: 0;
+
+    float: left;
+
+    width: 267px;
+    margin-right: 120px;
+}
+.footer-social a {
+    margin-right: 10px;
+}
+.footer-social a:last-child {
+    margin: 0;
+}
+.sprite {
+    display: block;
+
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+}
+
+.sprite-icon-social-fb {
+    width: 32px;
+    height: 32px;
+
+    background-position: -5px -5px;
+}
+
+.sprite-icon-social-insta {
+    width: 32px;
+    height: 32px;
+
+    background-position: -47px -5px;
+}
+
+.sprite-icon-social-twit {
+    width: 32px;
+    height: 32px;
+
+    background-position: -89px -5px;
+}
+
+.sprite-icon-social-vk {
+    width: 32px;
+    height: 32px;
+
+    background-position: -131px -5px;
+}
+.social-btn {
+    font-size: 0;
+
     display: inline-block;
 
-    width: 539px;
+    width: 30px;
+    height: 30px;
 
     vertical-align: top;
 
-    outline: 1px solid black;
+    border: 5px solid rgba(255,255,255, .5);
+    border-radius: 50%;
+    background: url('../img/sprites-social.png') no-repeat center;
+}
+
+.social-btn-tw {
+    opacity: .8;
+    background-position: -90px -6px;
+}
+
+.social-btn-inst {
+    opacity: .8;
+    background-position: -48px -6px;
+}
+
+.social-btn-fb {
+    opacity: .8;
+    background-position: -6px -6px;
+}
+
+.social-btn-vk {
+    opacity: .8;
+    background-position: -132px -6px;
+}
+
+.social-btn-tw:hover {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -90px -6px;
+}
+
+.social-btn-inst:hover {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -48px -6px;
+}
+
+.social-btn-fb:hover {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -6px -6px;
+}
+
+.social-btn-vk:hover {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -132px -6px;
+}
+
+.social-btn-tw:active {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -90px -6px;
+    box-shadow: inset 0 2px 1px #888;
+}
+
+.social-btn-inst:active {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -48px -6px;
+    box-shadow: inset 0 2px 1px #888;
+}
+
+.social-btn-fb:active {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -6px -6px;
+    box-shadow: inset 0 2px 1px #888;
+}
+
+.social-btn-vk:active {
+    opacity: 1;
+    border: 5px solid rgba(255,255,255, .7);
+    background-position: -132px -6px;
+    box-shadow: inset 0 2px 1px #888;
 }
 
 
-.map {
-    max-width: 100%;
-    height: auto;
-}
-
-.contacts-address {
-    width: 303px;
-    margin: 0 0 0 auto; /*выравнять можно двумя способами:margin: 0 0 0 auto или float:right;*/
-
-    outline: 1px solid black;
-}
-
-
-
-.footer-social {
-    float: left;
-
-    width: 267px;
-    margin-right: 26px;
-}
 
 .footer-links {
+    font-size: 0;
+
     float: left;
 
-    width: 560px;
+    width: 350px; /*высчитали ширину блока*/
     margin-right: 26px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    line-height: 18px;
+
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 50%; /*задали половину ширины*/
+
+    vertical-align: middle;
+
+    color: #fff;
+}
+.footer-links a:nth-child(odd) {
+    padding-left: 35px; /*высчитали паддинги*/
+}
+
+
+.heart {
+    font-weight: 700;
+
+    position: relative;
+
+    padding-left: -20px;
+}
+
+.heart::before {
+    position: absolute;
+    top: 2px;
+    left: 15px;
+
+    width: 15px;
+    height: 13px;
+
+    content: '';
+
+    background: url('../img/icon-heart.png') no-repeat center;
 }
 
 .footer-copyright {
+    font-size: 12px;
+    font-weight: 400px;
+    line-height: 18px;
+
     float: right;
 
     width: 267px;
+
+    color: #fff;
+}
+
+.footer-copyright a {
+    color: #fff;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.breadcrumbs {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.breadcrumbs li {
+    position: relative;
+
+    display: inline;
+
+    padding-right: 21px;
+}
+
+.breadcrumbs a {
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #fff;
+}
+
+.breadcrumbs .current {
+    color: #fff;
+}
+
+.breadcrumbs li::after {
+    font-size: 14px;
+    line-height: 16px;
+
+    position: absolute;
+    top: 2px;
+    right: 3px; /*привязываем к правому краю, чтобы приувеличении текста разделитель не перекрылся*/
+
+    width: 10px;
+    height: 10px;
+
+    content: '»';
+
+    color: #fff;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: none;
+}
+
+.breadcrumbs .current::after {
+    /*спрятали у последнего элемента кавычку. Можно без ласт чайлд, потому что в крошках current всегда ласт*/
+    display: none;
+}
+
+/*Стилизация фильтров*/
+
+.filter {
+    margin-bottom: 40px;
 }
 
 .filter-row {
@@ -626,4 +1318,430 @@ body > input[type="radio"] {
 
 .filter-section {
     display: inline-block;
+
+    vertical-align: top;
+    margin-right: 15px;
+}
+
+.filter-sort {
+    width: 195px;
+
+    color: #fff;
+}
+
+.filter-sort label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    display: inline-block;
+
+    padding-left: 15px;
+
+    cursor: pointer;
+    vertical-align: top;
+}
+
+
+.filter-sort select {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+
+    width: 195px;
+    height: 37px;
+    margin: 0;
+    padding-left: 15px;
+
+    color: inherit;
+    border: none;
+    border-radius: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2) 50% 50%;
+}
+
+.filter-sort select:hover {
+    background: rgba(255, 255, 255, 1) 50% 50%;
+    color: #000;
+}
+
+.sort-option {
+    font-size: inherit;
+
+    color: #000;
+}
+
+
+.filter-range {
+    width: 220px;
+
+    color: #fff;
+}
+
+.price-controls {
+    font-size: 0;
+
+    display: inline-block;
+
+    width: 220px;
+    padding-left: 15px;
+
+    vertical-align: top;
+}
+
+.price-controls label {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    display: inline-block;
+
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.price-controls .min-price,
+.price-controls .max-price {
+    width: 110px; /*здесь должно быть достаточно место для лейбла и завернутого инпута*/
+}
+
+.price-controls .max-price {
+    margin-left: -5px;
+}
+
+.price-controls input {
+    font: inherit;
+
+    width: 25px;
+    margin: 0;
+
+    color: inherit;
+    border: none;
+    background: none;
+}
+
+.range-controls {
+    position: relative;
+
+    height: 37px;
+    padding: 0 15px;
+
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2) 50% 50%;
+}
+
+.range-controls .scale {
+    position: relative;
+    top: 50%;
+
+    height: 4px;
+
+    background: rgba(255, 255, 255, .5);
+}
+
+.range-controls .bar {
+    position: absolute;
+    left: 30px;
+
+    width: 50%;
+    height: 4px;
+
+    background: rgba(255, 255, 255, 1);
+}
+
+.range-toggle {
+    position: absolute;
+    top: 10px;
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    background: #fff;
+}
+
+.range-toggle-min {
+    left: 20%;
+}
+
+.range-toggle-max {
+    left: 60%;
+}
+
+
+.filter-fat {
+    font-size: 0;
+
+    width: 360px;
+
+    color: #fff;
+}
+
+.filter-fat-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    display: inline-block;
+
+    padding-left: 15px;
+
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.filter-fat-controls {
+    position: relative;
+
+    display: inline-block;
+
+    width: 385px;
+    height: 37px;
+    padding: 0 15px;
+
+    vertical-align: middle;
+
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2) 50% 50%;
+}
+
+
+input[type='radio'] + label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+
+    position: relative;
+    top: 30%;
+
+    display: inline-block;
+
+    margin-right: 20px;
+    padding-left: 30px;
+
+    cursor: pointer;
+    vertical-align: top;
+    text-transform: lowercase;
+}
+
+
+
+
+input[type='radio'] {
+    display: none;
+}
+
+input[type='radio'] + label:before {
+    position: absolute;
+    top: -3px;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+    vertical-align: top;
+
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+
+input[type='radio']:checked + label:after {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+
+    display: inline-block;
+
+    width: 12px;
+    height: 12px;
+
+    content: '';
+    vertical-align: top;
+
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+
+.filter-fat-controls label:last-child {
+margin-right: 0;
+    }
+
+
+.filter-filler {
+    font-size: 0;
+
+    width: 702px;
+
+    color: #fff;
+}
+
+
+.filter-filler-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    display: inline-block;
+
+    padding-left: 15px;
+
+    cursor: pointer;
+    vertical-align: top;
+}
+
+
+.filter-filler-controls {
+    position: relative;
+
+    display: inline-block;
+
+    width: 670px;
+    height: 37px;
+    padding: 0 15px;
+
+    vertical-align: middle;
+
+    border-radius: 15px;
+    background: rgba(255, 255, 255, .2) 50% 50%;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+input[type='checkbox'] + label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+
+    position: relative;
+    top: 30%;
+
+    display: inline-block;
+
+    margin-right: 19px;
+    padding-left: 30px;
+
+    cursor: pointer;
+    vertical-align: top;
+    text-transform: lowercase;
+}
+
+input[type='checkbox'] + label:before {
+    position: absolute;
+    top: -3px;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '';
+    vertical-align: top;
+
+    background:  url("../img/filter-unchecked.png") no-repeat 50% 50%;
+}
+
+
+input[type='checkbox']:checked + label:after {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+
+    display: inline-block;
+
+    width: 12px;
+    height: 12px;
+
+    content: '';
+    vertical-align: top;
+
+  background:  url("../img/filter-checked.png") no-repeat 50% 50%;
+}
+
+.filter .btn {
+    padding: 0 28px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: 30px;
+    border:2px solid #fff;
+    background: rgba(255,255,255, 0.2);
+    box-shadow: none;
+    text-shadow: none;
+    vertical-align: bottom;
+    height: 37px;
+    margin-bottom: 0;
+}
+
+.filter .btn:hover {
+   
+    background: rgba(255,255,255, 1);
+ color: #000;
+}
+
+.filter .btn:active {
+   
+    box-shadow: inset 0 2px 1px #696969;
+ color: #000;
+}
+
+.paginator {
+    float: right;
+
+    margin: 100px 0;
+
+    text-align: right;
+}
+
+.paginator a {
+    font-size: 16px;
+    font-weight: 600px;
+    line-height: 30px;
+
+    display: inline-block;
+
+    min-width: 20px;
+    height: 30px;
+    padding: 0 5px;
+
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+
+    color: #fff;
+}
+
+.paginator .prev {
+    text-indent: -1000px;
+
+    background: url('../img/prev-arrow-paginator.png') no-repeat 50% 50%;
+}
+
+.paginator .next {
+    margin-left: 10px;
+
+    text-indent: -1000px;
+
+    background: url('../img/next-arrow-paginator.png') no-repeat 50% 50%;
+}
+
+.paginator .disabled {
+    opacity: .2;
+}
+
+.paginator .current {
+    color: #000;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.paginator a:hover:not(:first-child):not(:last-child):not(.current) {
+    /*ховера нет на текущей, последней и предыдущ*/
+    border-radius: 50%;
+    background-color: rgba(255,255,255, .2);
 }
