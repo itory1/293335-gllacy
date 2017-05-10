@@ -11,11 +11,11 @@
         <div class="content-wrapper"><!--здесь нужен только обычный центровщик, так как смены слайдов нет-->
             <header class="clearfix">
                 <div class="header-logo">
-                    <img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
-                </div>
+                    <a href="http://gllacy.ru/"><img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
+                </div></a>
                 <ul class="page-nav">
 	                    <li class="drop">
-	                        <a class="current" >Каталог</a>
+	                        <a class="current" class="page-nav-link" >Каталог</a>
 	                        <div class="menu-drop">
 		                        <ul class="nav-inner">
 		                            <li class="nav-inner-new"><a href="#">Новинки</a></li>
@@ -26,8 +26,8 @@
 		                        </ul>
 		                    </div>
 	                    </li>
-	                    <li><a href="#">Доставка и оплата</a></li>
-	                    <li><a href="#">О компании</a></li>
+	                    <li><a href="#" class="page-nav-link">Доставка и оплата</a></li>
+	                    <li><a href="#" class="page-nav-link">О компании</a></li>
 	                </ul>
                 <div class="header-right">
                     <div class="search">
@@ -35,8 +35,8 @@
                         <div class="block-hide">
                             <form action="" method="">
                                 <div class="form-field">
-                                    <input type="text" name="search" id="">
-                                    <label for="">Что ищем?</label>
+                                    <input type="text" name="search" id="" class="form-input" required>
+                                    <label for="" class="form-label">Что ищем?</label>
                                 </div>
                             </form>
                         </div>
@@ -113,7 +113,7 @@
                     <form class="filter" action="https://echo.htmlacademy.ru" method="post">
                         <div class="filter-row">
                             <div class="filter-section filter-sort">
-                                <label for="sort">Сортировка</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
+                                <label for="sort">Сортировка:</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
                                 <select name="sort" id="sort">
                                     <option class="sort-option">По популярности</option>
                                     <option class="sort-option">Сначала недорогие</option>
@@ -138,7 +138,7 @@
                                 <label for="price">Цена: 100руб.-500руб.</label>-->
                             </div>
                              <div class="filter-section filter-fat">
-                                <label class="filter-fat-title" for="0">Жирность</label>
+                                <label class="filter-fat-title" for="0">Жирность:</label>
                                 	<div class="filter-fat-controls">
 		                                <input type="radio" name="fat" value="0" id="0" checked>
 		                                <label for="0">0%</label>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="filter-row">
                             <div class="filter-section filter-filler">
-                                <label class="filter-filler-title">Наполнители</label>
+                                <label class="filter-filler-title">Наполнители:</label>
                                		<div class="filter-filler-controls">
 		                                <input type="checkbox" name="filler" value="chocolate" id="chocolate" checked>
 		                                <label for="chocolate">Шоколадные</label>

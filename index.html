@@ -19,7 +19,7 @@
 	                </div>
 	                <ul class="page-nav">
 	                    <li class="drop">
-	                        <a href="#">Каталог</a>
+	                        <a href="#" class="page-nav-link">Каталог</a>
 	                        <div class="menu-drop">
 		                        <ul class="nav-inner">
 		                            <li class="nav-inner-new"><a href="#">Новинки</a></li>
@@ -30,8 +30,8 @@
 		                        </ul>
 		                    </div>
 	                    </li>
-	                    <li><a href="#">Доставка и оплата</a></li>
-	                    <li><a href="#">О компании</a></li>
+	                    <li><a href="#" class="page-nav-link">Доставка и оплата</a></li>
+	                    <li><a href="#" class="page-nav-link">О Компании</a></li>
 	                </ul>
 	                <div class="header-right">
 	                    <div class="search">
@@ -39,8 +39,8 @@
 	                        <div class="block-hide">
 	                            <form action="" method="">
 	                                <div class="form-field">
-	                                    <input type="text" name="search" id="">
-	                                    <label for="">Что ищем?</label>
+	                                    <input type="text" name="search" id="" class="form-input" required>
+	                                    <label for="" class="form-label">Что ищем?</label>
 	                                </div>
 	                            </form>
 	                        </div>
@@ -50,12 +50,12 @@
 	                        <div class="block-hide">
 	                            <form action="" method="">
 	                                <div class="form-field">
-	                                    <input type="" name="" id="">
-	                                    <label for="">Электронаня почта</label> 
+	                                    <input type="" name="" id="" class="form-input" required>
+	                                    <label for="" class="form-label">Электронаня почта</label> 
 	                                </div>
 	                                <div class="form-field">
-	                                    <input type="" name="" id="">
-	                                    <label for="">Пароль</label> 
+	                                    <input type="" name="" id="" class="form-input">
+	                                    <label for="" class="form-label">Пароль</label> 
 	                                </div>
 	                                <div class="login-btn">
 	                                <button class="btn" type="submit">Войти</button> <!--Кнопки и ссылки должны жить внутри формы-->
@@ -185,7 +185,7 @@
 		                        <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно=)</p>
 		                        <form action="" method="" class="subscribe-form clearfix">
 		                            <div class="form-field">
-		                                <input class="form-input" type="email" name="subscribe" id="subscribe">
+		                                <input class="form-input" type="email" name="subscribe" id="subscribe" required>
 		                                <label class="form-label" for="subscribe">Электронная почта</label>
 		                            </div>
 		                            <button class="btn" type="submit" value="email">Отправить</button><!-- Кнопка должна идти после блока .form-field, а не в нем, но внутри form -->
@@ -200,7 +200,7 @@
 			                    <div class="contacts-address">
 			                    	<div class="container">
 				                        <p class="street"><span>Адрес главного офиса <br>и офлайн магазина:</span>ул. Большая Конюшенная 19/8, Санкт-Петербург</p>
-				                        <p>Для заказов по тлефону: <span>8 812 450-25-25</span>(с 10 до 20 ежедневно)</p>
+				                        <p class="street"><span>Для заказов по телефону:</span> 8 812 450-25-25<span>(с 10 до 20 ежедневно)</span> </p>
 				                        <a class="btn" href="/feedback">Форма обратной связи</a><!--Тут ссылка на форму, а сам блок feedback лучше размещать после section.contacts -->
 				                    </div>
 			                    </div>
@@ -249,5 +249,6 @@
 	            </footer>
 	         </div>
         </div>
+        <script src="js/script.js"></script>
     </body>
 </html>
