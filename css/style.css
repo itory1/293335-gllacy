@@ -913,6 +913,7 @@ body > input[type='radio'] {
     width: 130px;
 
     vertical-align: middle;
+    border: none;
 }
 
 .form-input {
@@ -1382,7 +1383,7 @@ body > input[type='radio'] {
     color: #fff;
 }
 
-.footer-links a::after {
+/*.footer-links a::after {
     position: absolute;
     bottom: 1px;
     left: 0;
@@ -1395,9 +1396,14 @@ body > input[type='radio'] {
     content: '';
 
     background: rgba(255, 255, 255, .2);
+}*/
+
+.footer-links span {
+
+border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+
 }
-
-
 
 .footer-links a:nth-child(odd) {
     padding-left: 35px; /*высчитали паддинги*/
