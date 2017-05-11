@@ -51,7 +51,7 @@
 	                            <form action="" method="">
 	                                <div class="form-field">
 	                                    <input type="" name="" id="" class="form-input" required>
-	                                    <label for="" class="form-label">Электронаня почта</label> 
+	                                    <label for="" class="form-label">Электронная почта</label> 
 	                                </div>
 	                                <div class="form-field">
 	                                    <input type="" name="" id="" class="form-input">
@@ -61,7 +61,7 @@
 	                                <button class="btn" type="submit">Войти</button> <!--Кнопки и ссылки должны жить внутри формы-->
 		                            </div>
 		                            <div class="login-remember"><!--Кнопки и ссылки должны жить внутри формы-->
-		                                <a href="#">Забыли пароль</a>
+		                                <a href="#">Забыли пароль?</a>
 		                                <a href="#">Новая регистрация</a>
 		                            </div>
 	                            </form>
@@ -109,7 +109,7 @@
 	                    <section class="half-width сhocolate">
 	                    	<div class="half-width container">
 		                        <h2>Шоколадки даром!</h2>
-		                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
+		                        <p>При покупке 2 кг пломбира добавим в ваш заказ упаковку вкуснейшей шоколаднйо присыпки абсолютно бесплатно.</p>
 		                        <a href="#" class="btn">Хочу шоколадки!</a>
 	                        </div>
 	                    </section>
@@ -188,7 +188,7 @@
 		                                <input class="form-input" type="email" name="subscribe" id="subscribe" required>
 		                                <label class="form-label" for="subscribe">Электронная почта</label>
 		                            </div>
-		                            <button class="btn" type="submit" value="email">Отправить</button><!-- Кнопка должна идти после блока .form-field, а не в нем, но внутри form -->
+		                            <button class="btn btn-subscribe" type="submit" value="email">Отправить</button><!-- Кнопка должна идти после блока .form-field, а не в нем, но внутри form -->
 		                        </form>
 		                    </div>
 	                    </section>
@@ -197,11 +197,12 @@
 	                <section class="contacts">
 	                    <img class="map" src="img/map.jpg" alt="Карта">
 	                    	<div class="content-wrapper clearfix">
+	                    		<img class="map-pin" src="img/pin.png" width="218px" height="142px">
 			                    <div class="contacts-address">
 			                    	<div class="container">
 				                        <p class="street"><span>Адрес главного офиса <br>и офлайн магазина:</span>ул. Большая Конюшенная 19/8, Санкт-Петербург</p>
 				                        <p class="street"><span>Для заказов по телефону:</span> 8 812 450-25-25<span>(с 10 до 20 ежедневно)</span> </p>
-				                        <a class="btn" href="/feedback">Форма обратной связи</a><!--Тут ссылка на форму, а сам блок feedback лучше размещать после section.contacts -->
+				                        <a class="btn feedback-form-btn" href="/feedback">Форма обратной связи</a><!--Тут ссылка на форму, а сам блок feedback лучше размещать после section.contacts -->
 				                    </div>
 			                    </div>
 			                </div>
@@ -209,23 +210,25 @@
 	        <div class="content-wrapper">
 	                <div class="feedback">
                         <div class="feedback-form">
-                        	<button class="btn" type="button">Удалить</button><!--Крестик закрытия формы-->
+                        	<p>Мы обязательно вам ответим!</p>
+                        	<button class="feedback-close-btn" type="button">Удалить</button><!--Крестик закрытия формы-->
                             <form action="" method="">
                                 <div class="form-field"><!-- Каждый блок .form-field должен оборачивать пару: input + label  -->
-                                    <input type="text" name="name" id="name">
-                                    <label for="name">Что ищем?</label>
+                                    <input class="form-input" type="text" name="name" id="name">
+                                    <label class="form-label" for="name">Как вас зовут?</label>
                                 </div>
                                 <div class="form-field">
-                                    <input type="email" name="email" id="email">
-                                    <label for="email">Ваша почта для ответа?</label>
+                                    <input class="form-input" type="email" name="email" id="email">
+                                    <label class="form-label" for="email">Ваша почта для ответа?</label>
                                 </div>
                                 <div class="form-field">
-                                    <textarea rows="3" name="comments" id="comments"></textarea>
-                                    <label for="comments">Напишите что-нибудь...</label>
+                                    <textarea class="form-input" rows="3" name="comments" id="comments"></textarea>
+                                    <label class="form-label" for="comments">Напишите что-нибудь...</label>
                                 </div>
-                                <button class="form btn" type="submit"></button>
+                                <button class="btn feedback-btn" type="submit">Отправить</button>
                             </form>
                         </div>
+                    <div class="modal-overlay"></div>
                     </div>
 	            </main>
 	            <footer class="main-footer clearfix">
@@ -244,11 +247,67 @@
 	                    <section class="footer-copyright">
 	                        <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="img/logo-HTML.png" alt="Логотип HTML Academy"></a>
 	                        <p>Сделано в
-	                        <a href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
+	                        <a class="copyright-link" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
 	                    </section>
 	            </footer>
 	         </div>
         </div>
         <script src="js/script.js"></script>
+        <script>
+
+        var link = document.querySelector(".feedback-form-btn");
+
+ 		var popup = document.querySelector(".feedback");
+
+ 		var close = popup.querySelector(".feedback-close-btn");
+
+ 		var form = popup.querySelector("form");
+
+ 		var fio = popup.querySelector("[name=name]");
+
+		var email = popup.querySelector("[name=email]");
+
+		var storage = localStorage.getItem("email");
+		console.log(storage) ;
+        link.addEventListener("click", function(event) {
+        event.preventDefault();
+        popup.classList.add("feedback-show");
+      
+ 		if (storage) {
+          email.value = storage;
+          fio.focus();
+        } else {
+
+      	  email.focus();
+    	}
+
+      });
+
+		close.addEventListener("click", function(event) {
+		event.preventDefault();
+		popup.classList.remove("feedback-show");
+		});
+
+		 form.addEventListener("submit", function(event) {
+       		 if (!fio.value || !email.value) {
+        		  event.preventDefault();
+         		 console.log("Нужно ввести имя и почту"); 
+     		 } 
+
+       		 if(email.value) {
+       		 	 localStorage.setItem("email", email.value);
+       		 }
+
+
+      	});
+
+		 window.addEventListener("keydown", function(event) {
+        if (event.keyCode === 27) {
+          if (popup.classList.contains("feedback-show")) {
+            popup.classList.remove("feedback-show");
+          }
+        }
+      });
+        </script>
     </body>
 </html>
