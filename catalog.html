@@ -11,11 +11,11 @@
         <div class="content-wrapper"><!--здесь нужен только обычный центровщик, так как смены слайдов нет-->
             <header class="clearfix">
                 <div class="header-logo">
-                    <img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
-                </div>
+                    <a href="http://gllacy.ru/"><img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
+                </div></a>
                 <ul class="page-nav">
 	                    <li class="drop">
-	                        <a class="current" >Каталог</a>
+	                        <a class="current" class="page-nav-link" >Каталог</a>
 	                        <div class="menu-drop">
 		                        <ul class="nav-inner">
 		                            <li class="nav-inner-new"><a href="#">Новинки</a></li>
@@ -26,8 +26,8 @@
 		                        </ul>
 		                    </div>
 	                    </li>
-	                    <li><a href="#">Доставка и оплата</a></li>
-	                    <li><a href="#">О компании</a></li>
+	                    <li><a href="#" class="page-nav-link">Доставка и оплата</a></li>
+	                    <li><a href="#" class="page-nav-link">О компании</a></li>
 	                </ul>
                 <div class="header-right">
                     <div class="search">
@@ -35,8 +35,8 @@
                         <div class="block-hide">
                             <form action="" method="">
                                 <div class="form-field">
-                                    <input type="text" name="search" id="">
-                                    <label for="">Что ищем?</label>
+                                    <input type="text" name="search" id="" class="form-input" required>
+                                    <label for="" class="form-label">Что ищем?</label>
                                 </div>
                             </form>
                         </div>
@@ -46,18 +46,18 @@
                         <div class="block-hide">
                             <form action="" method="">
                                 <div class="form-field">
-                                    <input type="" name="" id="">
-                                    <label for="">Электронаня почта</label> 
+                                    <input type="" name="" id="" class="form-input" required>
+                                    <label for="" class="form-label">Электронная почта</label> 
                                 </div>
                                 <div class="form-field">
-                                    <input type="" name="" id="">
-                                    <label for="">Пароль</label> 
+                                    <input type="" name="" id="" class="form-input">
+                                    <label for="" class="form-label">Пароль</label> 
                                 </div>
                                 <div class="login-btn">
                                 <button class="btn" type="submit">Войти</button>
 	                            </div>
 	                            <div class="login-remember">
-	                                <a href="#">Забыли пароль</a>
+	                                <a href="#">Забыли пароль?</a>
 	                                <a href="#">Новая регистрация</a>
 	                            </div>
                             </form>
@@ -68,9 +68,9 @@
                         <div class="block-hide">
 	                        <div class="basket-content">
 	                            <ul class="basket-list">
-	                                <li>
-	                                    <button class="btn" type="button">Удалить</button>
-	                                    <div class="basket-item-img"><img src="img/basket-ice.png" alt="Пломбир с апельсиновым джемом" width="33" height="33">Пломбир с апельсиновым джемом</div>
+	                                <li class="basket-item basket-item-1">
+	                                    <button class="basket-item-delete delete-1" type="button" >Удалить</button>
+	                                    <div class="basket-item-img"><img src="img/basket-ice.png" alt="Пломбир с апельсиновым джемом" width="33" height="33"></div>
 	                                    <p class="basket-item-name">Пломбир с апельсиновым джемом</p>
 	                                    <p class="basket-item-weight">
 	                                        <span class="basket-packet-weight">1,5 кг х</span>
@@ -78,8 +78,8 @@
 	                                    </p>
 	                                    <p class="basket-item-price">300 руб.</p>
 	                                </li>
-	                                <li>
-	                                    <button class="btn" type="button">Удалить</button>
+	                                <li class="basket-item basket-item-2">
+	                                    <button class="basket-item-delete delete-2" type="button">Удалить</button>
 	                                    <div class="basket-item-img"><img src="img/basket-ice2.png" alt="Клубничный пломбир с присыпкой из белого шоколада" width="33" height="33"></div>
 	                                    <p class="basket-item-name">Клубничный пломбир с присыпкой из белого шоколада</p>
 	                                    <p class="basket-item-weight">
@@ -113,7 +113,7 @@
                     <form class="filter" action="https://echo.htmlacademy.ru" method="post">
                         <div class="filter-row">
                             <div class="filter-section filter-sort">
-                                <label for="sort">Сортировка</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
+                                <label for="sort">Сортировка:</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
                                 <select name="sort" id="sort">
                                     <option class="sort-option">По популярности</option>
                                     <option class="sort-option">Сначала недорогие</option>
@@ -138,7 +138,7 @@
                                 <label for="price">Цена: 100руб.-500руб.</label>-->
                             </div>
                              <div class="filter-section filter-fat">
-                                <label class="filter-fat-title" for="0">Жирность</label>
+                                <label class="filter-fat-title" for="0">Жирность:</label>
                                 	<div class="filter-fat-controls">
 		                                <input type="radio" name="fat" value="0" id="0" checked>
 		                                <label for="0">0%</label>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="filter-row">
                             <div class="filter-section filter-filler">
-                                <label class="filter-filler-title">Наполнители</label>
+                                <label class="filter-filler-title">Наполнители:</label>
                                		<div class="filter-filler-controls">
 		                                <input type="checkbox" name="filler" value="chocolate" id="chocolate" checked>
 		                                <label for="chocolate">Шоколадные</label>
@@ -338,10 +338,10 @@
                         <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
                     </section>
                     <section class="footer-links">
-                        <a href="#" class="heart">Для поставщиков</a>
-                        <a href="#">Наши документы</a>
-                        <a href="#">О производстве</a>
-                        <a href="#">Экологические стандарты</a>
+                        <a href="#" class="heart"><span>Для поставщиков</span></a>
+                        <a href="#"><span>Наши документы</span></a>
+                        <a href="#"><span>О производстве</span></a>
+                        <a href="#"><span>Экологические стандарты</span></a>
                     </section>
                     <section class="footer-copyright">
                         <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="img/logo-HTML.png" alt="Логотип HTML Academy"></a>
