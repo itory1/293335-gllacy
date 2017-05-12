@@ -1,4 +1,4 @@
-document.querySelectorAll("input").forEach(function(item) {
+document.querySelectorAll("input, textarea").forEach(function(item) {
   item.addEventListener("blur",function() {
     console.log(this.value);
     if (this.value.length) {

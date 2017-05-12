@@ -8,14 +8,14 @@
         	<link href="css/style.css" rel="stylesheet">
     </head>
     <body class="inner-page">
-        <div class="content-wrapper"><!--здесь нужен только обычный центровщик, так как смены слайдов нет-->
+        <div class="content-wrapper">
             <header class="clearfix">
                 <div class="header-logo">
-                    <a href="http://gllacy.ru/"><img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
-                </div></a>
+                    <a href="http://gllacy.ru/"><img src="img/logo.png" alt="GllacyShop" width="154" height="64"></a>
+                </div>
                 <ul class="page-nav">
 	                    <li class="drop">
-	                        <a class="current" class="page-nav-link" >Каталог</a>
+	                        <a class="current page-nav-link">Каталог</a>
 	                        <div class="menu-drop">
 		                        <ul class="nav-inner">
 		                            <li class="nav-inner-new"><a href="#">Новинки</a></li>
@@ -34,10 +34,10 @@
                         <a href="#" class="">Поиск</a>
                         <div class="hide-drop">
                             <div class="block-hide">
-                                <form action="" method="">
+                                <form action="https://echo.htmlacademy.ru" method="get">
                                     <div class="form-field">
-                                        <input type="text" name="search" id="" class="form-input" required>
-                                        <label for="" class="form-label">Что ищем?</label>
+                                        <input type="text" name="search" id="search" class="form-input" required>
+                                        <label for="search" class="form-label">Что ищем?</label>
                                     </div>
                                 </form>
                             </div>
@@ -47,13 +47,13 @@
                         <a class="login" href="#">Вход</a>
                         <div class="hide-drop">
                             <div class="block-hide">
-                                <form action="" method="">
+                                <form action="https://echo.htmlacademy.ru" method="post">
                                     <div class="form-field">
                                         <input type="text" name="email" id="email" class="form-input" required>
                                         <label for="email" class="form-label">Электронная почта</label> 
                                     </div>
                                     <div class="form-field">
-                                        <input type="password" name="password" id="password" class="form-input">
+                                        <input type="password" name="password" id="password" class="form-input" required>
                                         <label for="password" class="form-label">Пароль</label> 
                                     </div>
                                     <div class="login-btn">
@@ -101,8 +101,8 @@
                         </div>
                     </div>
                     <div class="work-time">
-                        <p class="time">С 10 до 20 ежедневно</p><!-- В <p> обернем, вместо <span>, чтобы каждый начинался на своей строчке -->
-                        <p class="tel">8 812 450-25-25</p><!-- В <p> обернем, вместо <span>, чтобы каждый начинался на своей строчке -->
+                        <p class="time">С 10 до 20 ежедневно</p>
+                        <p class="tel">8 812 450-25-25</p>
                     </div>
                 </div>
             </header>
@@ -111,7 +111,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="">Главная</a></li>
                         <li><a href="">Каталог</a></li> 
-                        <li class="current">Сливочное</li> <!--убираем ссылку вообще, потому что ни при каких раскладах последняя хлебная крошка никуда не ведет-->
+                        <li class="current">Сливочное</li> 
                     </ul>
                     <h1>Сливочное мороженое</h1>
                 </div>
@@ -119,13 +119,15 @@
                     <form class="filter" action="https://echo.htmlacademy.ru" method="post">
                         <div class="filter-row">
                             <div class="filter-section filter-sort">
-                                <label for="sort">Сортировка:</label><!-- Сделай это лучше тегом <p> --><!--label и input строчные, поэтому все может начать налезать. Можно сделать <p> вместо <label> или <p><label></label></p>. Но в реальных проектах, чтобы не плодить теги прописывают в css label display: block и вставляют их инлайново в тег <head><style></style></head>. Туда пихают весь css, который отвечаеn за первый экран (1000px примерно). И тогда CSS прилетает вместе с HTML, и первая страница быстро строится-->
-                                <select name="sort" id="sort">
-                                    <option class="sort-option">По популярности</option>
-                                    <option class="sort-option">Сначала недорогие</option>
-                                    <option class="sort-option">Сначала дорогие</option>
-                                    <option class="sort-option">По жирности</option>
-                                </select>
+                                <label for="sort">Сортировка:</label>
+                                <div  class="select-style">
+                                    <select name="sort" id="sort">
+                                        <option class="sort-option">По популярности</option>
+                                        <option class="sort-option">Сначала недорогие</option>
+                                        <option class="sort-option">Сначала дорогие</option>
+                                        <option class="sort-option">По жирности</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="filter-section filter-range">
                             	<div class="price-controls">
@@ -136,12 +138,9 @@
 									<div class="scale"> 
 						          		<div class="bar"></div>
 							        </div>
-							        <div class="range-toggle range-toggle-min"></div> <!--Общий класс для стилизации, второй для расположения-->
+							        <div class="range-toggle range-toggle-min"></div> 
        								<div class="range-toggle range-toggle-max"></div>
                             	</div>
-
-                                <!--<input type="range" id="price" min="0" max="1000" step="100">
-                                <label for="price">Цена: 100руб.-500руб.</label>-->
                             </div>
                              <div class="filter-section filter-fat">
                                 <label class="filter-fat-title" for="0">Жирность:</label>
@@ -172,7 +171,7 @@
 		                                <label for="fruits">Фрукты</label>
 		                                <input type="checkbox" name="filler" value="syrup" id="syrup">
 		                                <label for="syrup">Сиропы</label>
-		                                <input type="checkbox" name="filler" value="jam" id="jam">
+		                                <input type="checkbox" name="filler" value="jam" id="jam" class="disabled">
 		                                <label for="jam">Джемы</label>
 		                            </div>
                             </div>
