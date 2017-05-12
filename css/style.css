@@ -142,26 +142,25 @@ html {
     display: inline-block;
 
     vertical-align: top;
-
 }
 
 
 
 .nav-inner-new {
-    font-weight: 700; /*как сделать, чтобы полоска не до конца шла?*/
+    font-weight: 700; 
 
     position: relative;
 }
 
 .nav-inner-new:after {
     position: absolute;
-    right: 10%;
+    right: 5%;
     bottom: 0;
-    left: 10%;
+    left: 5%;
 
     display: block;
 
-    width: 80%;
+    width: 90%;
     height: 1px;
 
     content: '';
@@ -255,7 +254,6 @@ html {
 }
 
 .nav-inner a:active:not(.current) {
-    /*почему пока я тут не поставил current, он не работал - специфичность?*/
     background-color: #f6b5a5;
 }
 
@@ -276,8 +274,9 @@ html {
 /*Ховеры*/
 
 .block-hide {
-    display: none;
     z-index: 10;
+
+    display: none;
 }
 
 /*Поиск*/
@@ -302,24 +301,40 @@ html {
     background: rgba(255, 255, 255, .2) url('../img/icon-search.png') no-repeat center;
 }
 
-.search:hover {
-    background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
+.search:hover .block-hide {
+   
+display: block;
 }
+
+.search:hover {
+     background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
+}
+
 
 .search .form-field {
     position: relative;
 }
 
 .search .block-hide {
-    position: absolute;
-    top: 37px;
-    right: 0;
+
 
     width: 340px;
     padding: 20px 15px;
 
     border-radius: 5px;
     background: #f8f7f4;
+
+}
+
+.hide-drop {
+ position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+
+    display: block;
+
+    padding: 50px 0 0; /*паддинг, чтобы не прерывалась связь между выпадающим списком и Каталогом*/
 }
 
 
@@ -353,7 +368,7 @@ html {
 
     top: -15px;
 
-    color: #5b9ddf;
+    color: #323232;
 }
 
 .form-label {
@@ -376,7 +391,7 @@ html {
 
     top: -15px;
 
-    color: #5b9ddf;
+    color: #323232;
 }
 
 
@@ -384,13 +399,12 @@ html {
 
 
 .user-reg {
-
+    position: relative;
     /*флоатим родителя, а не ссылку*/
 
     float: left;
 
     max-width: 150px;
-    position: relative;
 }
 
 
@@ -452,69 +466,81 @@ html {
 }
 
 .user-reg .block-hide {
-    position: absolute;
+
     top: 50px;
     right: 10px;
 
     display: none;
 
+    box-sizing: border-box;
     width: 278px;
     height: 215px;
     padding: 20px 18px;
 
-
     border-radius: 5px;
     background: #f8f7f4;
-    box-sizing: border-box;
 }
+
+.user-reg:hover .block-hide {
+
+display: block;
+}
+
+
 
 
 .user-reg input {
     font-size: 14px;
     line-height: 24px;
-box-sizing: border-box;
 
+    box-sizing: border-box;
     width: 100%;
     height: 44px;
+    margin-bottom: 20px;
     padding: 12px 15px;
 
     color: #999;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 .login-btn .btn {
-    width: 100px;
-    padding: 10px 25px;
     font-size: 18px;
     line-height: 24px;
-    text-align: right;
-    display: inline-block;
-    vertical-align: top;
 
+    display: inline-block;
+
+    width: 100px;
+    padding: 10px 25px;
+
+    text-align: right;
+    vertical-align: top;
 }
 .login-btn {
-    width: 100px;
     display: inline-block;
-     margin-right: 10px;
+
+    width: 100px;
+    margin-right: 14px;
 }
 
 .login-remember {
-    width: 128px;
-    display: inline-block;
-    vertical-align: top;
     font-size: 13px;
     line-height: 24px;
 
+    display: inline-block;
+
+    width: 124px;
     margin-right: -2px;
+
+    vertical-align: top;
 }
 
 
 .basket {
     font-size: 14px;
+    font-weight: 500;
     line-height: 16px;
-font-weight: 500;
+
     position: relative;
 
     float: left;
@@ -563,91 +589,161 @@ font-weight: 500;
 }
 
 .basket .block-hide {
-    position: absolute;
+
     top: 40px;
-    right: 0px;
+    right: 0;
 
     display: none;
 
+    box-sizing: border-box;
     width: 540px;
-    min-height: 240px;
     padding: 20px 20px;
-
 
     border-radius: 5px;
     background: #f8f7f4;
-    box-sizing: border-box;
 }
 
 .basket-list {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+}
+
+.basket:hover .block-hide{
+display: block;
 }
 
 .basket-item-delete {
- position: absolute;
-  top: 15px;
-  left: 15px;
-     width: 10px;
-  height: 10px;
+    font-size: 0;
 
-  font-size: 0;
+    position: relative; /*чтобы не выпадал из потока*/
 
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
+    display: inline-block;
+
+    width: 25px; /*сделать не по размеру крестика, а по размеру мороженки, например, чтобы они выровнялись нормально*/
+    height: 33px;
+
+    cursor: pointer;
+    vertical-align: baseline;
+
+    border: 0;
+    background-color: transparent;
 }
 
 
 .basket-item-delete::before,
 .basket-item-delete::after {
-  content: "";
-  position: absolute;
+    position: absolute;
+    top: 15px;
+    left:0;
 
-  width: 15px;
-  height: 2px;
-  background-color: #323232;
-  border-radius: 1px;
-  top:10px;
-  left: -1px;
+    width: 15px;
+    height: 1px;
+
+    content: '';
+
+    border-radius: 1px;
+    background-color: #323232;
 }
 
 .basket-item-delete::before {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .basket-item-delete::after {
-  transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
-
-.delete-1 {
-    top:30px;
-  left: 17px;
+.basket-item {
+    margin-bottom: 15px;
+     text-align: left;
 }
 
-.delete-2 {
-     top:84px;
-      left: 17px;
+.basket-item::last-child {
+    margin-bottom: 0;
 }
-
 
 .basket-item-img {
-    padding-left: 20px;
+    position: relative;
+    top: 4px;
     display: inline-block;
+
     width: 33px;
+
+
     vertical-align: middle;
+}
+
+.basket-packet-price {
+color: #999999;
 }
 
 .basket-item p {
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-   max-width: 230px;
-    vertical-align: middle;
     font-size: 13px;
     line-height: 16px;
+
+    display: inline-block;
+
+    vertical-align: top;
+}
+
+.basket-item-name {
+    width: 230px;
+    margin-left: 10px;
+ display: inline-block;
+ vertical-align: top;
+}
+
+.basket-item-price {
+ margin-left: 30px;
+
+}
+
+.basket-list {
+    position: relative;
+}
+
+.basket-list:after {
+    position: absolute;
+
+    bottom: 0;
+
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    content: '';
+
+    border-bottom: 1px solid lightgrey;
+}
+
+.basket-total-price {
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    width: 500px;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.basket-btn {
+ display: inline-block;
+    vertical-align: top;
+padding: 10px 15px;
+    width: 140px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700px;
+}
+
+.basket-content {
+    text-align: right;
 }
 
 .work-time {
@@ -803,7 +899,7 @@ body > input[type='radio'] {
 #btn-1:hover:not(:checked) ~ .site-wrapper label[for='btn-1'],
 #btn-2:hover:not(:checked) ~ .site-wrapper label[for='btn-2'],
 #btn-3:hover:not(:checked) ~ .site-wrapper label[for='btn-3'] {
-    background-color: rgba(255,255,255, 0.4);
+    background-color: rgba(255,255,255, .4);
 }
 
 .features {
@@ -811,19 +907,18 @@ body > input[type='radio'] {
     font-weight: 400px;
     line-height: 22px;
 
+    margin-top: -28px;
     margin-bottom: 40px;
     /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
     padding: 27px 20px;
 
     border-radius: 10px;
     background: #eaddbf url('../img/pattern-wafel.png');
-    margin-top: -28px;
 }
 
 .features h1 {
     margin: 0;
     padding: 0;
-
 }
 
 .features ul {
@@ -842,6 +937,7 @@ body > input[type='radio'] {
     margin-right: 26px;
     padding-top: 20px;
     padding-left: 57px;
+
     vertical-align: top;
 }
 
@@ -946,12 +1042,11 @@ body > input[type='radio'] {
 
 .raspberry h2,
 .сhocolate h2 {
-
     font-size: 35px;
     line-height: 41px;
 }
 
-    
+
 
 .raspberry {
     background: #ac1d33  url('../img/raspberry.jpg') no-repeat center;
@@ -968,20 +1063,21 @@ body > input[type='radio'] {
 
 .news h2 {
     font-size: 16px;
+    font-weight: 600;
     line-height: 22px;
 
     margin: 0;
     padding: 0;
 
     color: #000;
-    font-weight: 600;
     color: #323232;
 }
 
 .news a {
     font-size: 24px;
+    font-weight: 700;
     line-height: 30px;
- font-weight: 700;
+
     margin: 0;
     padding: 0;
 
@@ -1047,6 +1143,7 @@ body > input[type='radio'] {
     width: 130px;
 
     vertical-align: middle;
+
     border: none;
 }
 
@@ -1060,9 +1157,10 @@ body > input[type='radio'] {
     height: 44px;
     padding: 9px 14px;
 
-    color: #999;
+    color: #323232;
     border: 1px solid #ccc;
     border-radius: 4px;
+
 }
 
 
@@ -1075,16 +1173,16 @@ body > input[type='radio'] {
     cursor: pointer;
     vertical-align: top;
     text-decoration: none;
- outline: none;
+
     color: #fff;
     border: none;
     border-radius: 100px;
+    outline: none;
     background: #f26843;
     background:    -moz-linear-gradient(top, #f26843 0%, #e74a35 100%);
     background: -webkit-linear-gradient(top, #f26843 0%, #e74a35 100%);
     background:         linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
     box-shadow: 0 2px 2px rgba(172, 16, 0, .64);
-
 }
 
 
@@ -1158,12 +1256,10 @@ body > input[type='radio'] {
 
     background: rgba(248,247,244,.3);
     box-shadow: 0 20px 20px rgba(0,0,0,.08);
-
 }
 
 .catalog-item:hover a {
-border-bottom: none;
-
+    border-bottom: none;
 }
 
 .catalog-item:nth-child(4n) {
@@ -1211,7 +1307,7 @@ border-bottom: none;
     text-decoration: none;
 
     color: #fff;
-        border-bottom: 1px solid rgba(255, 255, 255, .3);
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
 }
 
 
@@ -1233,6 +1329,7 @@ border-bottom: none;
     visibility: hidden;
 
     width: 201px;
+    margin-bottom: 15px;
     padding: 12px 18px;
     padding-top: 14px;
     padding-bottom: 13px;
@@ -1240,7 +1337,6 @@ border-bottom: none;
     vertical-align: middle;
 
     border-radius: 25px;
-    margin-bottom: 15px;
 }
 
 .catalog-item:hover .btn {
@@ -1300,11 +1396,13 @@ border-bottom: none;
 
 .map-pin {
     position: absolute;
-    content: "";
+    top: 140px;
+    left: 350px;
+
     width: 218px;
     height: 142px;
-    top:140px;
-    left: 350px;
+
+    content: '';
 }
 
 .street {
@@ -1325,51 +1423,55 @@ border-bottom: none;
 }
 
 @keyframes bounce {
-  0%   {
-    transform: translateY(-2000px);
-  }
-  70%  {
-    transform: translateY(-420px);
-  }
-  90%  {
-    transform: translateY(-380px);
-  }
-  100% {
-    transform: translateY(-390px);
-  }
-  }
+    0% {
+        transform: translateY(-2000px);
+    }
+    70% {
+        transform: translateY(-420px);
+    }
+    90% {
+        transform: translateY(-380px);
+    }
+    100% {
+        transform: translateY(-390px);
+    }
+}
 
 .feedback {
     display: none;
 }
 
 .feedback-form {
-    width: 478px;
-    height: 390px;
-    padding: 25px;
-    background-color: #f8f7f4;
-    border-radius: 15px;
-    color: #323232;
     font-size: 24px;
-    line-height: 28px;
     font-weight: 600;
-position: fixed;
-top:50%;
-left: 50%;
-margin-top:-200px;
-margin-left:-260px;
-z-index: 30;
+    line-height: 28px;
 
+    position: fixed;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+
+    width: 478px;
+    min-height: 390px;
+    margin-top: -200px;
+    margin-left: -260px;
+    padding: 25px;
+
+    color: #323232;
+    border-radius: 15px;
+    background-color: #f8f7f4;
 }
 
 .feedback-show {
-  display: block;
-   animation: bounce 0.6s;
+    display: block;
+
+    animation: bounce .6s;
 }
 
 .feedback-form .form-field {
-    position: relative;
     font-weight: 400;
+
+    position: relative;
 }
 
 .feedback-form .form-input {
@@ -1382,79 +1484,87 @@ z-index: 30;
 
 
 .feedback-close-btn {
+    font-size: 0;
+
     position: absolute;
-  top: 15px;
-  right: 15px;
-     width: 22px;
-  height: 22px;
+    top: 15px;
+    right: 15px;
 
-  font-size: 0;
+    width: 22px;
+    height: 22px;
 
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
+    cursor: pointer;
 
+    border: 0;
+    background-color: transparent;
 }
 
 .feedback-close-btn::before,
 .feedback-close-btn::after {
-  content: "";
-  position: absolute;
+    position: absolute;
+    top: 10px;
+    left: -1px;
 
-  width: 25px;
-  height: 2px;
-  background-color: #323232;
-  border-radius: 1px;
-  top:10px;
-  left: -1px;
+    width: 25px;
+    height: 2px;
+
+    content: '';
+
+    border-radius: 1px;
+    background-color: #323232;
 }
 
 .feedback-close-btn::before {
-  transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .feedback-close-btn::after {
-  transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 .feedback-form p {
-    padding: 0;
     margin: 0;
     margin-bottom: 20px;
+    padding: 0;
 }
 
 .feedback-form textarea {
-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
     height: 150px;
     padding: 12px 20px;
-    box-sizing: border-box;
+
+    resize: none;
+
     border-radius: 4px;
     background-color: #f8f8f8;
-    resize: none;
 }
 
 .feedback-btn {
-    padding: 10px 25px;
     font-size: 18px;
-    line-height: 24px;
     font-weight: 700;
-float: right;
+    line-height: 24px;
+
+    float: right;
+
+    margin-bottom: 25px;
+    padding: 10px 25px;
+
     text-align: right;
     vertical-align: top;
-    margin-bottom: 25px;
 }
 
 
 .modal-overlay {
-position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 20;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, .5);
 }
 
 .contacts {
@@ -1485,23 +1595,22 @@ position: fixed;
 }
 
 .contacts .btn {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+
     display: inline-block;
 
     width: 200px;
     padding: 10px 25px;
 
     text-align: center;
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 700;
 }
 
 
 .main-footer {
     padding-top: 20px;
     padding-bottom: 25px;
-
-    outline: 1px solid black;
 }
 
 .footer-social {
@@ -1673,10 +1782,7 @@ position: fixed;
 
 
 .footer-links span {
-
-border-bottom: 1px solid rgba(255, 255, 255, .2);
-
-
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
 .footer-links a:nth-child(odd) {
@@ -1728,25 +1834,25 @@ border-bottom: 1px solid rgba(255, 255, 255, .2);
     float: right;
 
     max-width: 267px;
+    margin-top: -10px;
 
     color: #fff;
-    margin-top: -10px;
 }
 
 .footer-copyright a {
     color: #fff;
-    
 }
 
 .copyright-link {
-border-bottom: 1px solid rgba(255, 255, 255, .2);
     text-decoration: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
 .copyright-link:hover,
 .copyright-link:active {
- border-bottom-color: #ffbc9e;
- color: #ffbc9e;
+    color: #ffbc9e;
+    border-bottom-color: #ffbc9e;
 }
 
 .footer-copyright p {
@@ -1773,6 +1879,8 @@ border-bottom: 1px solid rgba(255, 255, 255, .2);
     line-height: 16px;
 
     color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
 .breadcrumbs .current {
@@ -1807,14 +1915,12 @@ border-bottom: 1px solid rgba(255, 255, 255, .2);
 /*Стилизация фильтров*/
 
 .filter {
-    margin-bottom: 70px;
-    margin-top: -30px;
+    width: 979px;
+    margin-top: 0px;
+    margin-bottom: 30px;
 }
 
 .filter-row {
-    float: left;
-
-    width: 979px;
     margin-bottom: 15px;
 }
 
@@ -1859,8 +1965,8 @@ border-bottom: 1px solid rgba(255, 255, 255, .2);
     color: inherit;
     border: none;
     border-radius: 20px;
-    background: rgba(255, 255, 255, .2) 50% 50%;
     outline: none;
+    background: rgba(255, 255, 255, .2) 50% 50%;
 }
 
 .filter-sort select:hover {
@@ -2042,28 +2148,27 @@ input[type='radio'] + label:before {
     top: -3px;
     left: 0;
 
+    box-sizing: border-box;
     width: 20px;
     height: 20px;
+    padding: 3px;
 
     content: '';
     vertical-align: top;
 
     border: 1px solid #fff;
     border-radius: 50%;
-    box-sizing: border-box;
-    padding: 3px;
     background-clip: content-box; /*нужно, чтобы учитывался паддинг внутри ободка и рисовалась точка. Так можно не делать второй всевдоэелемент.*/
 }
 
-input[type='radio']:not(:checked) + label:hover:before {
+input[type='radio'] + label:hover:before {
+    box-sizing: border-box; /*чтобы 2px расширялись внутрь и кнопка не прыгала при наведении*/
 
     border-width: 2px;
-box-sizing: border-box; /*чтобы 2px расширялись внутрь и кнопка не прыгала при наведении*/
-
 }
 
 input[type='radio']:checked + label:before {
-background-color: #fff; 
+    background-color: #fff;
 }
 
 /*input[type='radio']:checked + label:after {
@@ -2152,39 +2257,46 @@ input[type='checkbox'] + label {
     text-transform: lowercase;
 }
 
-input[type='checkbox'] + label:before { /*крутой вариант на чистом css*/
- position: absolute;
+input[type='checkbox'] + label:before {
+    /*крутой вариант на чистом css*/
+    position: absolute;
     top: -3px;
     left: 0;
 
+    box-sizing: border-box;
     width: 20px;
     height: 20px;
 
     content: '';
+
     border: 1px solid #f8f7f4;
-  border-radius: 4px;
+    border-radius: 4px;
 }
 
 input[type='checkbox']:checked + label:after {
-position: absolute;
-content: "";
-top:0px;
-left: 7px;
-border-bottom: 3px solid #fff; /*галочка*/
-  border-right: 3px solid #fff;
-  width: 6px;
-  height: 10px;
-  transform: rotate(45deg);
+    position: absolute;
+    top: 0;
+    left: 7px;
 
+    box-sizing: border-box;
+    width: 7px;
+    height: 12px;
+
+    content: '';
+    transform: rotate(45deg);
+
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff; /*галочка*/
 }
 
-input[type='checkbox']:hover:not(:checked) + label:before { /*крутой вариант на чистом css*/
+input[type='checkbox']:hover + label:before {
+    box-sizing: border-box;
+    /*крутой вариант на чистом css*/
 
     border: 2px solid #f8f7f4;
-box-sizing: border-box;
 }
 
-/*input[type='checkbox'] + label:before { //не оч крутой вариант с каринками
+/*input[type='checkbox'] + label:before { //не оч крутой вариант с картинками
     position: absolute;
     top: -3px;
     left: 0;
@@ -2215,7 +2327,7 @@ input[type='checkbox']:checked + label:after {
     background: url('../img/filter-checked.png') no-repeat 50% 50%;
 }*/
 
-.filter .btn {
+.filter-btn {
     font-size: 16px;
     font-weight: 600;
     line-height: 18px;
@@ -2223,7 +2335,7 @@ input[type='checkbox']:checked + label:after {
     height: 37px;
     margin-bottom: 0;
     padding: 0 28px;
-
+color: #fff;
     vertical-align: bottom;
 
     border: 2px solid #fff;
@@ -2231,14 +2343,15 @@ input[type='checkbox']:checked + label:after {
     background: rgba(255,255,255, .2);
     box-shadow: none;
     text-shadow: none;
+    outline: none;
 }
 
-.filter .btn:hover {
+.filter-btn:hover {
     color: #000;
     background: rgba(255,255,255, 1);
 }
 
-.filter .btn:active {
+.filter-btn:active {
     color: #000;
     box-shadow: inset 0 2px 1px #696969;
 }
@@ -2246,7 +2359,7 @@ input[type='checkbox']:checked + label:after {
 .paginator {
     float: right;
 
-    margin:0;
+    margin: 0;
     margin-top: 100px;
     margin-bottom: 20px;
 
