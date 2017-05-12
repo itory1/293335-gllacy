@@ -11,11 +11,11 @@
 	    <input type="radio" id="btn-1" name="toggle" checked>
 	    <input type="radio" id="btn-2" name="toggle">
 	    <input type="radio" id="btn-3" name="toggle">
-        <div class="site-wrapper"><!--блок, который меняет фон для всей страницы при смене слайдов-->
-        	<div class="content-wrapper"><!--обычный центровщик-->
+        <div class="site-wrapper">
+        	<div class="content-wrapper">
 	            <header class="clearfix">
 	                <div class="header-logo">
-	                    <img src="img/logo.png" alt="GllacyShop" width="154px" height="64px">
+	                    <img src="img/logo.png" alt="GllacyShop" width="154" height="64">
 	                </div>
 	                <ul class="page-nav">
 	                    <li class="drop">
@@ -38,10 +38,10 @@
 	                        <a href="#" class="search-link">Поиск</a>
 	                        <div class="hide-drop">
 		                        <div class="block-hide">
-		                            <form action="" method="">
+		                            <form action="https://echo.htmlacademy.ru" method="get">
 		                                <div class="form-field">
-		                                    <input type="text" name="search" id="" class="form-input" required>
-		                                    <label for="" class="form-label">Что ищем?</label>
+		                                    <input type="text" name="search" id="search" class="form-input" required>
+		                                    <label for="search" class="form-label">Что ищем?</label>
 		                                </div>
 		                            </form>
 		                        </div>
@@ -51,19 +51,19 @@
 	                        <a class="login" href="#">Вход</a>
 	                        <div class="hide-drop">
 		                        <div class="block-hide">
-		                            <form action="" method="">
+		                            <form action="https://echo.htmlacademy.ru" method="post">
 		                                <div class="form-field">
-		                                    <input type="" name="" id="" class="form-input" required>
-		                                    <label for="" class="form-label">Электронная почта</label> 
+		                                    <input type="text" name="email" id="login-email" class="form-input" required>
+		                                    <label for="login-email" class="form-label">Электронная почта</label> 
 		                                </div>
 		                                <div class="form-field">
-		                                    <input type="" name="" id="" class="form-input">
-		                                    <label for="" class="form-label">Пароль</label> 
+		                                    <input type="password" name="password" id="password" class="form-input">
+		                                    <label for="password" class="form-label">Пароль</label> 
 		                                </div>
 		                                <div class="login-btn">
-		                                <button class="btn" type="submit">Войти</button> <!--Кнопки и ссылки должны жить внутри формы-->
+		                                <button class="btn" type="submit">Войти</button> 
 			                            </div>
-			                            <div class="login-remember"><!--Кнопки и ссылки должны жить внутри формы-->
+			                            <div class="login-remember">
 			                                <a href="#">Забыли пароль?</a>
 			                                <a href="#">Новая регистрация</a>
 			                            </div>
@@ -72,15 +72,13 @@
 		                    </div>
 	                    </div>
 	                    <div class="basket">
-	                        <a class="basket-link" href="#">Пусто</a>
-	                        <!--Когда в корзине пусто нужно что-то показывать или hide-block вообще не надо?-->
-	                        <!-- Лучше не показывать. Его если что создают через JS. Проверяют есть ли такой блок. Если нету, то создают его и поле с товаром и общей стоимостью, если есть, то просто добавляют еще поле с товаром -->
-	                        </div>
+	                        <a class="basket-link">Пусто</a>
 	                    </div>
 	                    <div class="work-time">
-	                        <p class="time">С 10 до 20 ежедневно</p><!-- В <p> обернем, вместо <span>, чтобы каждый начинался на своей строчке -->
-	                        <p class="tel">8 812 450-25-25</p><!-- В <p> обернем, вместо <span>, чтобы каждый начинался на своей строчке -->
+	                        <p class="time">С 10 до 20 ежедневно</p>
+	                        <p class="tel">8 812 450-25-25</p>
 	                    </div>
+	                </div>
 	            </header>
 	            <main>
 	                <section class="slider">
@@ -105,8 +103,8 @@
 	                <div class="half-width-block clearfix">
 	                    <section class="half-width raspberry">
 	                    	<div class="half-width container">
-		                        <h2>Малинка даром!</h2><!--h3?--><!-- Внутри section, можно и h2, так как section и article задаюст свою иерархию (можно и h1 несолько раз) -->
-		                        <p>При покупке 2 кг любого фруктвого мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
+		                        <h2>Малинка даром!</h2>
+		                        <p>При покупке 2 кг любого фруктового мороженого добавим в ваш заказ банку малинового варенья бесплатно.</p>
 		                        <a href="#" class="btn">Хочу варенье!</a>
 	                        </div>
 	                    </section>
@@ -187,12 +185,12 @@
 	                    <section class="half-width subscribe">
 	                    	<div class="container">
 		                        <p>Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно=)</p>
-		                        <form action="" method="" class="subscribe-form clearfix">
+		                        <form action="https://echo.htmlacademy.ru" method="post" class="subscribe-form clearfix">
 		                            <div class="form-field">
 		                                <input class="form-input" type="email" name="subscribe" id="subscribe" required>
 		                                <label class="form-label" for="subscribe">Электронная почта</label>
 		                            </div>
-		                            <button class="btn btn-subscribe" type="submit" value="email">Отправить</button><!-- Кнопка должна идти после блока .form-field, а не в нем, но внутри form -->
+		                            <button class="btn btn-subscribe" type="submit" value="email">Отправить</button>
 		                        </form>
 		                    </div>
 	                    </section>
@@ -201,23 +199,23 @@
 	                <section class="contacts">
 	                    <img class="map" src="img/map.jpg" alt="Карта">
 	                    	<div class="content-wrapper clearfix">
-	                    		<img class="map-pin" src="img/pin.png" width="218px" height="142px">
+	                    		<img class="map-pin" src="img/pin.png" width="218" height="142" alt="Карта">
 			                    <div class="contacts-address">
 			                    	<div class="container">
 				                        <p class="street"><span>Адрес главного офиса <br>и офлайн магазина:</span>ул. Большая Конюшенная 19/8, Санкт-Петербург</p>
 				                        <p class="street"><span>Для заказов по телефону:</span> 8 812 450-25-25<span>(с 10 до 20 ежедневно)</span> </p>
-				                        <a class="btn feedback-form-btn" href="/feedback">Форма обратной связи</a><!--Тут ссылка на форму, а сам блок feedback лучше размещать после section.contacts -->
+				                        <a class="btn feedback-form-btn" href="/feedback">Форма обратной связи</a>
 				                    </div>
 			                    </div>
 			                </div>
 	                </section>
-	        <div class="content-wrapper">
+	       	<div class="content-wrapper">
 	                <div class="feedback">
                         <div class="feedback-form">
                         	<p>Мы обязательно вам ответим!</p>
-                        	<button class="feedback-close-btn" type="button">Удалить</button><!--Крестик закрытия формы-->
-                            <form action="" method="">
-                                <div class="form-field"><!-- Каждый блок .form-field должен оборачивать пару: input + label  -->
+                        	<button class="feedback-close-btn" type="button">Удалить</button>
+                            <form action="https://echo.htmlacademy.ru" method="post">
+                                <div class="form-field">
                                     <input class="form-input" type="text" name="name" id="name">
                                     <label class="form-label" for="name">Как вас зовут?</label>
                                 </div>
@@ -232,7 +230,7 @@
                                 <button class="btn feedback-btn" type="submit">Отправить</button>
                             </form>
                         </div>
-                    <div class="modal-overlay"></div>
+                    	<div class="modal-overlay"></div>
                     </div>
 	            </main>
 	            <footer class="main-footer clearfix">
@@ -254,7 +252,7 @@
 	                        <a class="copyright-link" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
 	                    </section>
 	            </footer>
-	         </div>
+	        </div>
         </div>
         <script src="js/script.js"></script>
         <script>
@@ -276,15 +274,19 @@
         link.addEventListener("click", function(event) {
         event.preventDefault();
         popup.classList.add("feedback-show");
+
+        popup.addEventListener('animationend', function(event){
+		    if (storage) {
+		          email.value = storage;
+		          email.classList.add("active") ;
+		          fio.focus();
+		        } else {
+
+		      	  email.focus();
+		    	}
+   }, false);
       
- 		if (storage) {
-          email.value = storage;
-          fio.focus();
-        } else {
-
-      	  email.focus();
-    	}
-
+ 	
       });
 
 		close.addEventListener("click", function(event) {

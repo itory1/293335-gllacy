@@ -4,7 +4,7 @@ body {
     font-weight: 400;
     line-height: 22px;
 
-    min-width: 1200px; /*или тут 900?*/
+    min-width: 1200px;
     margin: 0;
     padding: 0;
 
@@ -27,7 +27,7 @@ html {
 }
 
 .page-title {
-    padding: 0 267px 0 0; /*отступ на случай, если в блоке появится больше текста, чтобы он не лез на блок с телефоном*/
+    padding: 0 267px 0 0;
 }
 
 .inner-page h1 {
@@ -38,7 +38,7 @@ html {
 .features h1 {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 30px;
 
     color: #323232;
@@ -52,8 +52,6 @@ html {
     background: #849d8f url('../img/bg1.png') no-repeat top center;
 }
 
-/* Псевдоэлементы с изображениями нужны только для предзагрузки картинок, чтобы они уже были в кеше 
-в момент переключения слайдов и сразу отображались */
 
 .site-wrapper::before,
 .site-wrapper::after {
@@ -72,7 +70,7 @@ html {
 
 
 .content-wrapper {
-    width: 1146px; /*надо делать под 900 или под 1200?*/
+    width: 1146px;
     margin: auto;
     padding: 10px 27px;
 }
@@ -117,11 +115,8 @@ html {
 }
 
 .page-nav-link:not(.current)::after {
-    /*было так: .page-nav a::after:not(.current) - это не работало, потому что тут написано:
-    возьми все ссылки в page-nav и их псевдоэлементам, кроме класса кюррент, задай стили. поэтому исправляем логику селектора.
-    и зададим класс ссылке, чтобы выдержать вложенность не более трех: .page-nav a = .page-nav-link*/
     position: absolute;
-    right: 15px; /*говорим, чтобы подчекивание начиналось на 15px справа и слева от li. У ссылки фиксированные паддинги на 15px, поэтому 15px, получается подчеркивание четко под текстом*/
+    right: 15px;
     bottom: 4px;
     left: 15px;
 
@@ -145,9 +140,8 @@ html {
 }
 
 
-
 .nav-inner-new {
-    font-weight: 700; 
+    font-weight: 700;
 
     position: relative;
 }
@@ -178,7 +172,6 @@ html {
 
 
 .page-nav-link:hover {
-    /*ховер все пунктов меню при наведении*/
     text-decoration: none;
 
     color: #000;
@@ -187,7 +180,6 @@ html {
 }
 
 .drop:hover .page-nav-link {
-    /*делаем так, что когда водим по подменю, ховер на КАТАЛОГЕ тоже остается*/
     text-decoration: none;
 
     color: #000;
@@ -204,7 +196,7 @@ html {
     font-weight: 400;
     line-height: 16px;
 
-    overflow: hidden; /*убрали углы*/
+    overflow: hidden;
 
     min-width: 145px;
     margin: 0;
@@ -232,7 +224,7 @@ html {
 
     display: none;
 
-    padding: 10px 0 0; /*паддинг, чтобы не прерывалась связь между выпадающим списком и Каталогом*/
+    padding: 10px 0 0;
 }
 .drop:hover .menu-drop {
     display: block;
@@ -271,15 +263,14 @@ html {
     max-width: 340px;
 }
 
-/*Ховеры*/
+
+
 
 .block-hide {
     z-index: 10;
 
     display: none;
 }
-
-/*Поиск*/
 
 .search {
     font-size: 0;
@@ -302,12 +293,11 @@ html {
 }
 
 .search:hover .block-hide {
-   
-display: block;
+    display: block;
 }
 
 .search:hover {
-     background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
+    background: rgba(255, 255, 255, 1) url('../img/icon-search black.png') no-repeat center;
 }
 
 
@@ -316,30 +306,27 @@ display: block;
 }
 
 .search .block-hide {
-
-
     width: 340px;
     padding: 20px 15px;
 
     border-radius: 5px;
     background: #f8f7f4;
-
 }
 
 .hide-drop {
- position: absolute;
+    position: absolute;
     z-index: 10;
-    top: 0;
+    top: 100%;
     right: 0;
 
     display: block;
 
-    padding: 50px 0 0; /*паддинг, чтобы не прерывалась связь между выпадающим списком и Каталогом*/
+    padding: 10px 0 0;
 }
-
 
 .search input {
     font-size: 14px;
+    font-weight: 700;
     line-height: 24px;
 
     box-sizing: border-box;
@@ -348,7 +335,7 @@ display: block;
     height: 44px;
     padding: 12px 15px;
 
-    color: #999;
+    color: #323232;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -385,7 +372,6 @@ display: block;
 }
 
 .active + .form-label {
-    /*фишка с js*/
     font-size: 11px;
     line-height: 13px;
 
@@ -395,18 +381,16 @@ display: block;
 }
 
 
-/*Вход*/
+
 
 
 .user-reg {
     position: relative;
-    /*флоатим родителя, а не ссылку*/
 
     float: left;
 
     max-width: 150px;
 }
-
 
 
 .login {
@@ -466,7 +450,6 @@ display: block;
 }
 
 .user-reg .block-hide {
-
     top: 50px;
     right: 10px;
 
@@ -482,15 +465,21 @@ display: block;
 }
 
 .user-reg:hover .block-hide {
-
-display: block;
+    display: block;
 }
 
+.user-reg:hover .login {
+    color: #000;
+    background: rgba(255, 255, 255, 1);
+}
 
-
+.user-reg:hover .login:before {
+    background: url('../img/icon-login black.png') no-repeat center;
+}
 
 .user-reg input {
     font-size: 14px;
+    font-weight: 700;
     line-height: 24px;
 
     box-sizing: border-box;
@@ -499,7 +488,7 @@ display: block;
     margin-bottom: 20px;
     padding: 12px 15px;
 
-    color: #999;
+    color: #323232;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -535,6 +524,10 @@ display: block;
     vertical-align: top;
 }
 
+.login-remember a {
+    color: #323232;
+}
+
 
 .basket {
     font-size: 14px;
@@ -545,9 +538,9 @@ display: block;
 
     float: left;
 
-    max-width: 150px;
+    width: 65px;
     margin-top: 12px;
-    padding: 8px 35px;
+    padding: 8px 10px;
     padding-left: 45px;
 
     border-radius: 15px;
@@ -574,7 +567,6 @@ display: block;
 }
 
 
-
 .inner-page .basket::after {
     position: absolute;
     top: 5px;
@@ -589,7 +581,6 @@ display: block;
 }
 
 .basket .block-hide {
-
     top: 40px;
     right: 0;
 
@@ -608,21 +599,20 @@ display: block;
     padding: 0;
 
     list-style: none;
-
 }
 
-.basket:hover .block-hide{
-display: block;
+.basket:hover .block-hide {
+    display: block;
 }
 
 .basket-item-delete {
     font-size: 0;
 
-    position: relative; /*чтобы не выпадал из потока*/
+    position: relative;
 
     display: inline-block;
 
-    width: 25px; /*сделать не по размеру крестика, а по размеру мороженки, например, чтобы они выровнялись нормально*/
+    width: 25px;
     height: 33px;
 
     cursor: pointer;
@@ -637,7 +627,7 @@ display: block;
 .basket-item-delete::after {
     position: absolute;
     top: 15px;
-    left:0;
+    left: 0;
 
     width: 15px;
     height: 1px;
@@ -658,7 +648,8 @@ display: block;
 
 .basket-item {
     margin-bottom: 15px;
-     text-align: left;
+
+    text-align: left;
 }
 
 .basket-item::last-child {
@@ -668,16 +659,16 @@ display: block;
 .basket-item-img {
     position: relative;
     top: 4px;
+
     display: inline-block;
 
     width: 33px;
-
 
     vertical-align: middle;
 }
 
 .basket-packet-price {
-color: #999999;
+    color: #999;
 }
 
 .basket-item p {
@@ -690,15 +681,16 @@ color: #999999;
 }
 
 .basket-item-name {
+    display: inline-block;
+
     width: 230px;
     margin-left: 10px;
- display: inline-block;
- vertical-align: top;
+
+    vertical-align: top;
 }
 
 .basket-item-price {
- margin-left: 30px;
-
+    margin-left: 30px;
 }
 
 .basket-list {
@@ -707,9 +699,7 @@ color: #999999;
 
 .basket-list:after {
     position: absolute;
-
     bottom: 0;
-
 
     display: block;
 
@@ -722,24 +712,30 @@ color: #999999;
 }
 
 .basket-total-price {
-    display: inline-block;
-    vertical-align: top;
-    text-align: right;
-    width: 500px;
     font-size: 15px;
-    line-height: 18px;
     font-weight: 700;
+    line-height: 18px;
+
+    display: inline-block;
+
+    width: 500px;
     margin-top: 0;
+
+    text-align: right;
+    vertical-align: top;
 }
 
 .basket-btn {
- display: inline-block;
-    vertical-align: top;
-padding: 10px 15px;
-    width: 140px;
     font-size: 18px;
-    line-height: 24px;
     font-weight: 700px;
+    line-height: 24px;
+
+    display: inline-block;
+
+    width: 140px;
+    padding: 10px 15px;
+
+    vertical-align: top;
 }
 
 .basket-content {
@@ -748,9 +744,10 @@ padding: 10px 15px;
 
 .work-time {
     float: right;
-    clear: both; /*запрещаем обтекание, чтобы разместить блок под входом*/
+    clear: both;
 
-    width: 267px; /*запас на добавление текста*/
+    width: 267px;
+    margin-top: 10px;
 
     text-align: right;
 }
@@ -780,8 +777,6 @@ body > input[type='radio'] {
 }
 
 
-
-
 .slider {
     position: relative;
 
@@ -809,9 +804,8 @@ body > input[type='radio'] {
 
 .slide-btn {
     font-size: 31px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 41px;
-    /*что все это значит и как это снимать?*/
 
     display: inline-block;
 
@@ -909,7 +903,6 @@ body > input[type='radio'] {
 
     margin-top: -28px;
     margin-bottom: 40px;
-    /*паддинги по кругу это вот так? мне еще пришлось обнулить списочные отступы*/
     padding: 27px 20px;
 
     border-radius: 10px;
@@ -1022,6 +1015,8 @@ body > input[type='radio'] {
     margin: 20px;
 
     text-align: right;
+
+    background-size: cover;
 }
 
 .half-width .container h2,
@@ -1063,7 +1058,7 @@ body > input[type='radio'] {
 
 .news h2 {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 5;
     line-height: 22px;
 
     margin: 0;
@@ -1136,7 +1131,6 @@ body > input[type='radio'] {
 }
 
 
-
 .btn-subscribe {
     display: inline-block;
 
@@ -1150,6 +1144,7 @@ body > input[type='radio'] {
 
 .form-input {
     font-size: 16px;
+    font-weight: 700;
     line-height: 24px;
 
     box-sizing: border-box;
@@ -1160,12 +1155,15 @@ body > input[type='radio'] {
     color: #323232;
     border: 1px solid #ccc;
     border-radius: 4px;
-
 }
 
+.form-input:hover {
+    box-sizing: border-box;
+
+    border: 2px solid #ccc;
+}
 
 .btn {
-    /*что все это значит и как это снимать?*/
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 
     display: inline-block;
@@ -1216,19 +1214,16 @@ body > input[type='radio'] {
 
 
 .popular-items,
-/*обнуляем шрифт у родительских блоков инлайновых элементов, чтобы не учитывался пробел между строчными*/
 .catalog {
     font-size: 0;
 }
 
 .catalog {
     margin-right: -13px;
-    margin-left: -13px; /*ширина окна 1146px (1200 - минус центровщик). Нам надо расположить 4 мороженки, ширина которых вместе с ховерной частью - 293px
-    293*4=1172 (разница 26px). Чтобы влезли боковые, уменшаем маргин на -13px*/
+    margin-left: -13px;
 }
-
 .catalog-item {
-    font-size: 14px; /*возвращяем шрифт собственно у инлайновых элементов*/
+    font-size: 14px;
 
     position: relative;
 
@@ -1236,12 +1231,10 @@ body > input[type='radio'] {
     display: inline-block;
 
     box-sizing: border-box;
-    /*картинки вырезали сразу в нужном размере 267 на 267 (хотя оригинал 600 на 600). В css задали width:100% и height:auto, чтобы при изменении размера картинки
-    не выпали из родителя. Актуально особенно при резиновой верстке.*/
     width: 293px;
-    min-height: 323px; /*зачем туту минимальная высота?*/
     min-height: 323px;
-    margin-bottom: -43px; /*чтобы налезала на нижнюю картинку*/
+    min-height: 323px;
+    margin-bottom: -43px;
     padding: 6px 13px;
 
     text-align: center;
@@ -1293,7 +1286,7 @@ body > input[type='radio'] {
     width: 267px;
     height: auto;
 
-    border-radius: 50%; /*как убрать белую риску?*/
+    border-radius: 50%;
 }
 
 .catalog-item-name a {
@@ -1311,14 +1304,11 @@ body > input[type='radio'] {
 }
 
 
-
 .catalog-item-name {
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
 }
-
-
 
 
 .catalog-item-descr .btn {
@@ -1395,9 +1385,9 @@ body > input[type='radio'] {
 }
 
 .map-pin {
-    position: absolute;
-    top: 140px;
-    left: 350px;
+    position: relative;
+    top: 70px;
+    left: 230px;
 
     width: 218px;
     height: 142px;
@@ -1443,7 +1433,7 @@ body > input[type='radio'] {
 
 .feedback-form {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 28px;
 
     position: fixed;
@@ -1451,6 +1441,7 @@ body > input[type='radio'] {
     top: 50%;
     left: 50%;
 
+    box-sizing: border-box;
     width: 478px;
     min-height: 390px;
     margin-top: -200px;
@@ -1475,11 +1466,17 @@ body > input[type='radio'] {
 }
 
 .feedback-form .form-input {
+    box-sizing: border-box;
     margin-bottom: 20px;
 }
 
 .feedback-form input {
+    font-weight: 700;
+
+    box-sizing: border-box;
     width: 268px;
+
+    color: #323232;
 }
 
 
@@ -1496,6 +1493,7 @@ body > input[type='radio'] {
     cursor: pointer;
 
     border: 0;
+    outline: none;
     background-color: transparent;
 }
 
@@ -1676,7 +1674,6 @@ body > input[type='radio'] {
 }
 
 .social-btn::before {
-    /*Иконку надо вешать на псевдоэлемент, а не на ссылку, тогда не будет как на макете*/
     display: block;
 
     width: 30px;
@@ -1759,7 +1756,7 @@ body > input[type='radio'] {
 
     float: left;
 
-    width: 350px; /*высчитали ширину блока*/
+    width: 350px;
     margin-right: 26px;
 }
 
@@ -1772,7 +1769,7 @@ body > input[type='radio'] {
     display: inline-block;
 
     box-sizing: border-box;
-    width: 50%; /*задали половину ширины*/
+    width: 50%;
 
     vertical-align: middle;
     text-decoration: none;
@@ -1786,7 +1783,7 @@ body > input[type='radio'] {
 }
 
 .footer-links a:nth-child(odd) {
-    padding-left: 35px; /*высчитали паддинги*/
+    padding-left: 35px;
 }
 
 .footer-links a:hover {
@@ -1860,7 +1857,7 @@ body > input[type='radio'] {
 }
 
 .breadcrumbs {
-    margin-top: -10px;
+    margin-top: -20px;
     padding: 0;
 
     list-style: none;
@@ -1878,8 +1875,9 @@ body > input[type='radio'] {
     font-size: 14px;
     line-height: 16px;
 
-    color: #fff;
     text-decoration: none;
+
+    color: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, .2);
 }
 
@@ -1893,7 +1891,7 @@ body > input[type='radio'] {
 
     position: absolute;
     top: 2px;
-    right: 3px; /*привязываем к правому краю, чтобы приувеличении текста разделитель не перекрылся*/
+    right: 3px;
 
     width: 10px;
     height: 10px;
@@ -1908,15 +1906,14 @@ body > input[type='radio'] {
 }
 
 .breadcrumbs .current::after {
-    /*спрятали у последнего элемента кавычку. Можно без ласт чайлд, потому что в крошках current всегда ласт*/
     display: none;
 }
 
-/*Стилизация фильтров*/
+
 
 .filter {
     width: 979px;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 30px;
 }
 
@@ -1954,7 +1951,7 @@ body > input[type='radio'] {
 
 .filter-sort select {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 16px;
 
     width: 195px;
@@ -1967,6 +1964,10 @@ body > input[type='radio'] {
     border-radius: 20px;
     outline: none;
     background: rgba(255, 255, 255, .2) 50% 50%;
+}
+
+.select-style {
+    border-radius: 20px;
 }
 
 .filter-sort select:hover {
@@ -2011,7 +2012,7 @@ body > input[type='radio'] {
 
 .price-controls .min-price,
 .price-controls .max-price {
-    width: 110px; /*здесь должно быть достаточно место для лейбла и завернутого инпута*/
+    width: 110px;
 }
 
 .price-controls .max-price {
@@ -2137,8 +2138,6 @@ input[type='radio'] + label {
 }
 
 
-
-
 input[type='radio'] {
     display: none;
 }
@@ -2158,11 +2157,11 @@ input[type='radio'] + label:before {
 
     border: 1px solid #fff;
     border-radius: 50%;
-    background-clip: content-box; /*нужно, чтобы учитывался паддинг внутри ободка и рисовалась точка. Так можно не делать второй всевдоэелемент.*/
+    background-clip: content-box;
 }
 
 input[type='radio'] + label:hover:before {
-    box-sizing: border-box; /*чтобы 2px расширялись внутрь и кнопка не прыгала при наведении*/
+    box-sizing: border-box;
 
     border-width: 2px;
 }
@@ -2170,26 +2169,6 @@ input[type='radio'] + label:hover:before {
 input[type='radio']:checked + label:before {
     background-color: #fff;
 }
-
-/*input[type='radio']:checked + label:after {
-    position: absolute;
-    top: 1px;
-    left: 4px;
-
-    display: inline-block;
-
-    width: 12px;
-    height: 12px;
-
-    content: '';
-    vertical-align: top;
-
-    border-radius: 50%;
-    background-color: #fff;
-    box-sizing: border-box;
-}*/
-
-
 
 
 .filter-fat-controls label:last-child {
@@ -2258,7 +2237,6 @@ input[type='checkbox'] + label {
 }
 
 input[type='checkbox'] + label:before {
-    /*крутой вариант на чистом css*/
     position: absolute;
     top: -3px;
     left: 0;
@@ -2273,7 +2251,7 @@ input[type='checkbox'] + label:before {
     border-radius: 4px;
 }
 
-input[type='checkbox']:checked + label:after {
+input[type='checkbox']:checked:not(.disabled) + label:after {
     position: absolute;
     top: 0;
     left: 7px;
@@ -2289,61 +2267,35 @@ input[type='checkbox']:checked + label:after {
     border-bottom: 3px solid #fff; /*галочка*/
 }
 
-input[type='checkbox']:hover + label:before {
+input[type='checkbox']:hover:not(.disabled) + label:before {
     box-sizing: border-box;
-    /*крутой вариант на чистом css*/
 
     border: 2px solid #f8f7f4;
 }
 
-/*input[type='checkbox'] + label:before { //не оч крутой вариант с картинками
-    position: absolute;
-    top: -3px;
-    left: 0;
-
-    width: 20px;
-    height: 20px;
-
-    content: '';
-    vertical-align: top;
-
-    background: url('../img/filter-unchecked.png') no-repeat 50% 50%;
+input[type='checkbox'].disabled + label:before {
+    opacity: .4;
 }
 
 
-input[type='checkbox']:checked + label:after {
-    position: absolute;
-    top: 2px;
-    left: 5px;
-
-    display: inline-block;
-
-    width: 12px;
-    height: 12px;
-
-    content: '';
-    vertical-align: top;
-
-    background: url('../img/filter-checked.png') no-repeat 50% 50%;
-}*/
-
 .filter-btn {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 18px;
 
     height: 37px;
     margin-bottom: 0;
     padding: 0 28px;
-color: #fff;
+
     vertical-align: bottom;
 
+    color: #fff;
     border: 2px solid #fff;
     border-radius: 30px;
+    outline: none;
     background: rgba(255,255,255, .2);
     box-shadow: none;
     text-shadow: none;
-    outline: none;
 }
 
 .filter-btn:hover {
@@ -2360,7 +2312,7 @@ color: #fff;
     float: right;
 
     margin: 0;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 20px;
 
     text-align: right;
@@ -2368,7 +2320,7 @@ color: #fff;
 
 .paginator a {
     font-size: 16px;
-    font-weight: 600px;
+    font-weight: 500px;
     line-height: 30px;
 
     display: inline-block;
@@ -2409,7 +2361,6 @@ color: #fff;
 }
 
 .paginator a:hover:not(:first-child):not(:last-child):not(.current) {
-    /*ховера нет на текущей, последней и предыдущ*/
     border-radius: 50%;
     background-color: rgba(255,255,255, .2);
 }
