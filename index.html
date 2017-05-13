@@ -8,22 +8,22 @@
         	<link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-	    <input type="radio" id="btn-1" name="toggle" checked>
-	    <input type="radio" id="btn-2" name="toggle">
-	    <input type="radio" id="btn-3" name="toggle">
+	    <input class="slider-input" type="radio" id="btn-1" name="toggle" checked>
+	    <input class="slider-input" type="radio" id="btn-2" name="toggle">
+	    <input class="slider-input" type="radio" id="btn-3" name="toggle">
         <div class="site-wrapper">
-        	<div class="content-wrapper">
-	            <header class="clearfix">
+	        <header>
+	            <div class="content-wrapper clearfix">
 	                <div class="header-logo">
 	                    <img src="img/logo.png" alt="GllacyShop" width="154" height="64">
 	                </div>
 	                <ul class="page-nav">
 	                    <li class="drop">
-	                        <a href="#" class="page-nav-link">Каталог</a>
+	                        <a href="http://gllacy.ru/catalog" class="page-nav-link">Каталог</a>
 	                        <div class="menu-drop">
 		                        <ul class="nav-inner">
 		                            <li class="nav-inner-new"><a href="#">Новинки</a></li>
-		                            <li><a href="#">Сливочное</a></li>
+		                            <li><a href="http://gllacy.ru/catalog/ice-cream">Сливочное</a></li>
 		                            <li><a href="#">Щербеты</a></li>
 		                            <li><a href="#">Фруктовый лед</a></li>
 		                            <li><a href="#">Мелорин</a></li>
@@ -79,10 +79,10 @@
 	                        <p class="tel">8 812 450-25-25</p>
 	                    </div>
 	                </div>
-	            </header>
-	        </div>
-	            <main>
-	        <div class="content-wrapper">
+	            </div>
+	        </header>
+	     	<main>
+	        	<div class="content-wrapper">
 	                <section class="slider">
 	                	<div class="slide" id="slide1">
 	                		<div class="slide-title">Крем-брюле и пломбир с малиновым джемом</div>
@@ -172,7 +172,7 @@
 	                    <h1>Магазин Глейси — это онлайн и офлайн магазин по продаже мороженого собственного производства на развес </h1>
 	                    <ul>
 	                        <li class="feature-item ice">Все наше мороженое изготавливается на собственном производстве с использованием современного оборудования и проверенных временем технологий.</li>
-	                        <li class="feature-item cow">Закупка ингридиентов производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывают долговременное сотрудничество.</li>
+	                        <li class="feature-item cow">Закупка ингредиентов производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывают долговременное сотрудничество.</li>
 	                        <li class="feature-item leaf">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингридиенты и добавки произведены из натурального, экологически чистого сырья.</li>
 	                        <li class="feature-item thermometer">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, которые на дает мороженому растаять в пути и позволяет сохранить превосходный вкус.</li>
 	                    </ul>
@@ -180,7 +180,7 @@
 	                <div class="half-width-block clearfix">
 	                    <section class="half-width news">
 	                    	<div class="container">
-		                        <h2>Новое в нашем блоге</h2>
+		                        <h2 class="news-title" >Новое в нашем блоге</h2>
 		                        <p><a href="#">10 способов сервировки фруктовых щербетов к столу</a></p>
 		                    </div>    
 	                    </section>
@@ -197,7 +197,7 @@
 		                    </div>
 	                    </section>
 	                </div>
-	        </div>        
+	        	</div>        
 	                <section class="contacts">
 	                    <img class="map" src="img/map.jpg" alt="Карта" width="1200" height="430">
 	                    	<div class="content-wrapper clearfix">
@@ -211,7 +211,6 @@
 			                    </div>
 			                </div>
 	                </section>
-	       	<div class="content-wrapper">
 	                <div class="feedback">
                         <div class="feedback-form">
                         	<p>Мы обязательно вам ответим!</p>
@@ -234,90 +233,29 @@
                         </div>
                     	<div class="modal-overlay"></div>
                     </div>
-            </div>  
-	            </main>
-	       	<div class="content-wrapper">
-	            <footer class="main-footer clearfix">
-	                    <section class="footer-social">
-	                        <a class="social-btn social-btn-tw" href="#">Твиттер</a>
-	                        <a class="social-btn social-btn-inst" href="#">Инстаграм</a>
-	                        <a class="social-btn social-btn-fb" href="#">Фейсбук</a>
-	                        <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
-	                    </section>
-	                    <section class="footer-links">
-	                        <a href="#" class="heart"><span>Для поставщиков</span></a>
-	                        <a href="#"><span>Наши документы</span></a>
-	                        <a href="#"><span>О производстве</span></a>
-	                        <a href="#"><span>Экологические стандарты</span></a>
-	                    </section>
-	                    <section class="footer-copyright">
-	                        <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="img/logo-HTML.png" alt="Логотип HTML Academy" width="108" height="38"></a>
-	                        <p>Сделано в
-	                        <a class="copyright-link" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
-	                    </section>
-	            </footer>
-	        </div>
+	        </main>
+	        <footer class="main-footer">
+	        	<div class="content-wrapper clearfix">
+                    <section class="footer-social">
+                        <a class="social-btn social-btn-tw" href="#">Твиттер</a>
+                        <a class="social-btn social-btn-inst" href="#">Инстаграм</a>
+                        <a class="social-btn social-btn-fb" href="#">Фейсбук</a>
+                        <a class="social-btn social-btn-vk" href="#">Вконтакте</a>
+                    </section>
+                    <section class="footer-links">
+                        <a href="#" class="footer-link heart"><span>Для поставщиков</span></a>
+                        <a href="#" class="footer-link"><span>Наши документы</span></a>
+                        <a href="#" class="footer-link"><span>О производстве</span></a>
+                        <a href="#" class="footer-link"><span>Экологические стандарты</span></a>
+                    </section>
+                    <section class="footer-copyright">
+                        <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="img/logo-html.png" alt="Логотип HTML Academy" width="108" height="38"></a>
+                        <p>Сделано в
+                        <a class="copyright-link" href="https://htmlacademy.ru">HTML Academy</a> © 2017</p>
+                    </section>
+                </div>
+            </footer>
         </div>
         <script src="js/script.js"></script>
-        <script>
-
-        var link = document.querySelector(".feedback-form-btn");
-
- 		var popup = document.querySelector(".feedback");
-
- 		var close = popup.querySelector(".feedback-close-btn");
-
- 		var form = popup.querySelector("form");
-
- 		var fio = popup.querySelector("[name=name]");
-
-		var email = popup.querySelector("[name=email]");
-
-		var storage = localStorage.getItem("email");
-		console.log(storage) ;
-        link.addEventListener("click", function(event) {
-        event.preventDefault();
-        popup.classList.add("feedback-show");
-
-        popup.addEventListener('animationend', function(event){
-		    if (storage) {
-		          email.value = storage;
-		          email.classList.add("active") ;
-		          fio.focus();
-		        } else {
-
-		      	  email.focus();
-		    	}
-   }, false);
-      
- 	
-      });
-
-		close.addEventListener("click", function(event) {
-		event.preventDefault();
-		popup.classList.remove("feedback-show");
-		});
-
-		 form.addEventListener("submit", function(event) {
-       		 if (!fio.value || !email.value) {
-        		  event.preventDefault();
-         		 console.log("Нужно ввести имя и почту"); 
-     		 } 
-
-       		 if(email.value) {
-       		 	 localStorage.setItem("email", email.value);
-       		 }
-
-
-      	});
-
-		 window.addEventListener("keydown", function(event) {
-        if (event.keyCode === 27) {
-          if (popup.classList.contains("feedback-show")) {
-            popup.classList.remove("feedback-show");
-          }
-        }
-      });
-        </script>
     </body>
 </html>
