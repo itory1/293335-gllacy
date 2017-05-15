@@ -264,14 +264,6 @@ html {
 }
 
 
-
-
-.block-hide {
-    z-index: 10;
-
-    display: none;
-}
-
 .search {
     font-size: 0;
 
@@ -292,7 +284,7 @@ html {
     background: rgba(255, 255, 255, .2) url('../img/icon-search.png') no-repeat center;
 }
 
-.search:hover .block-hide {
+.search:hover .hide-drop {
     display: block;
 }
 
@@ -305,7 +297,7 @@ html {
     position: relative;
 }
 
-.search .block-hide {
+.search form {
     width: 340px;
     padding: 20px 15px;
 
@@ -314,13 +306,11 @@ html {
 }
 
 .hide-drop {
+    display: none;
     position: absolute;
     z-index: 10;
     top: 100%;
     right: 0;
-
-    display: block;
-
     padding: 10px 0 0;
 }
 
@@ -449,12 +439,7 @@ html {
     position: relative;
 }
 
-.user-reg .block-hide {
-    top: 50px;
-    right: 10px;
-
-    display: none;
-
+.user-reg form {
     box-sizing: border-box;
     width: 278px;
     height: 215px;
@@ -464,7 +449,11 @@ html {
     background: #f8f7f4;
 }
 
-.user-reg:hover .block-hide {
+.user-reg:hover .hide-drop {
+    right: 10px;
+}
+
+.user-reg:hover .hide-drop {
     display: block;
 }
 
@@ -589,20 +578,6 @@ background: rgba(255, 255, 255, 1);
     background: url('../img/icon-basket-full.png') no-repeat center;
 }
 
-.basket .block-hide {
-    top: 40px;
-    right: 0;
-
-    display: none;
-
-    box-sizing: border-box;
-    width: 540px;
-    padding: 20px 20px;
-
-    border-radius: 5px;
-    background: #f8f7f4;
-}
-
 .basket-list {
     margin: 0;
     padding: 0;
@@ -610,7 +585,7 @@ background: rgba(255, 255, 255, 1);
     list-style: none;
 }
 
-.basket:hover .block-hide {
+.basket:hover .hide-drop {
     display: block;
 }
 
@@ -630,7 +605,6 @@ background: rgba(255, 255, 255, 1);
     border: 0;
     background-color: transparent;
 }
-
 
 .basket-item-delete::before,
 .basket-item-delete::after {
@@ -749,6 +723,12 @@ background: rgba(255, 255, 255, 1);
 
 .basket-content {
     text-align: right;
+    width: 540px;
+    padding: 20px 20px;
+
+    border-radius: 5px;
+    background: #f8f7f4;
+    box-sizing: border-box;
 }
 
 .work-time {
